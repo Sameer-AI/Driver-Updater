@@ -1,0 +1,171 @@
+﻿<Page x:Class="Driver_Updater.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Driver_Updater"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="Page2">
+    <Grid>
+
+        <Rectangle x:Name="PageSection" HorizontalAlignment="Left" Margin="-11.442,-11.709,0,0" Width="719.757" Grid.ColumnSpan="3" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="backdrop.png"/>
+            </Rectangle.Fill>
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="#FFBB0F0F" HorizontalAlignment="Left" Height="23" Margin="9,68.5,0,0" VerticalAlignment="Top" Width="5"/>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="31,73,0,0" TextWrapping="Wrap" Text="Hot Fix Tools:" VerticalAlignment="Top" Width="164" Foreground="#FFB9B5B5"/>
+        <Rectangle Fill="#FFBB0F0F" HorizontalAlignment="Left" Height="23" Margin="18,330.656,0,0" VerticalAlignment="Top" Width="5"/>
+        <TextBlock HorizontalAlignment="Left" Height="23" Margin="40,335.156,0,0" TextWrapping="Wrap" Text="Other Useful Tools:" VerticalAlignment="Top" Width="164" Foreground="#FFB9B5B5"/>
+        <Button Content="Backup &amp; Restore" HorizontalAlignment="Left" Height="125" Margin="10.5,110.5,0,0" VerticalAlignment="Top" Width="125" Foreground="#FFFFF8F8" FontSize="10" Padding="1,70,1,1">
+            <Button.Background>
+                <ImageBrush ImageSource="1.png" Stretch="Uniform">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.35" ScaleY="0.35"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform Y="-0.15"/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Fix No Sound" HorizontalAlignment="Left" Height="125" Margin="154.5,110.5,0,0" VerticalAlignment="Top" Width="125" Foreground="#FFFFF8F8" Padding="1,70,1,1">
+            <Button.Background>
+                <ImageBrush ImageSource="2.png">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.35" ScaleY="0.35"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform Y="-0.15"/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Fix Driver Error" HorizontalAlignment="Left" Height="125.5" Margin="298.75,110,0,0" VerticalAlignment="Top" Width="125" Foreground="#FFFFF8F8" Padding="1,70,1,1">
+            <Button.Background>
+                <ImageBrush ImageSource="3.png" Stretch="Uniform">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.35" ScaleY="0.35"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform Y="-0.15"/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Clean Invalid Device Drivers" HorizontalAlignment="Left" Height="37" Margin="459,99,0,0" VerticalAlignment="Top" Width="193.5" Foreground="#FFFFF8F8" Padding="38,1,1,1">
+            <Button.Background>
+                <ImageBrush ImageSource="8.png" Stretch="Uniform">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.75" ScaleY="0.75"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform X="-0.4"/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Fix Network Failure" HorizontalAlignment="Left" Height="37" Margin="459,148.5,0,0" VerticalAlignment="Top" Width="193.5" Foreground="#FFFFF8F8" Padding="1,1,10,1">
+            <Button.Background>
+                <ImageBrush ImageSource="9.png" Stretch="Uniform">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.75" ScaleY="0.75"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform X="-0.4"/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Fix Bad Resolution" HorizontalAlignment="Left" Height="37" Margin="459,198,0,0" VerticalAlignment="Top" Width="193.5" Foreground="#FFFFF8F8" Padding="1,1,15,1">
+            <Button.Background>
+                <ImageBrush ImageSource="10.png" Stretch="Uniform">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.75" ScaleY="0.75"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform X="-0.4"/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Offline Driver &#xD;&#xA;Updater" HorizontalAlignment="Left" Height="125" Margin="18,363.5,0,0" VerticalAlignment="Top" Width="125" Foreground="#FFFFF8F8" Padding="1,70,1,1">
+            <Button.Background>
+                <ImageBrush ImageSource="4.png" Stretch="Uniform">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.35" ScaleY="0.35"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform Y="-0.15"/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="System Information&#xD;&#xA;" HorizontalAlignment="Left" Height="125" Margin="156,363.5,0,0" VerticalAlignment="Top" Width="125" Foreground="#FFFFF8F8" Padding="1,70,1,1">
+            <Button.Background>
+                <ImageBrush ImageSource="5.png" Stretch="Uniform">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.35" ScaleY="0.35"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform Y="-0.15"/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Screen Recorder" HorizontalAlignment="Left" Height="125" Margin="295.5,363.5,0,0" VerticalAlignment="Top" Width="125" Foreground="#FFFFF8F8" Padding="1,56,1,1">
+            <Button.Background>
+                <ImageBrush ImageSource="6.png" Stretch="Uniform">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.35" ScaleY="0.35"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform Y="-0.15"/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Software Updater" HorizontalAlignment="Left" Height="125" Margin="436.5,363.5,0,0" VerticalAlignment="Top" Width="125" Foreground="#FFFFF8F8" Padding="1,56,1,1">
+            <Button.Background>
+                <ImageBrush ImageSource="7.png" Stretch="Uniform">
+                    <ImageBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.35" ScaleY="0.35"/>
+                            <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                            <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                            <TranslateTransform Y="-0.15"/>
+                        </TransformGroup>
+                    </ImageBrush.RelativeTransform>
+                </ImageBrush>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</Page>

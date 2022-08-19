@@ -1,0 +1,148 @@
+﻿<Page
+    x:Class="Driver_Updater.Page1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Driver_Updater"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Page1"
+    d:DesignHeight="600"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+
+        </Grid.ColumnDefinitions>
+        <Rectangle
+            x:Name="PageSection"
+            Width="770.528"
+            Margin="-11.028,-10.957,0,0.25"
+            HorizontalAlignment="Left"
+            RenderTransformOrigin="0.5,0.5" Fill="#FF131313">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Height="600" VerticalAlignment="Top" Width="759.5" HorizontalAlignment="Left" Opacity="0.8">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="backdrop.png" Opacity="0.5"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <StackPanel Margin="0" Orientation="Horizontal">
+            <Grid x:Name="GameBoostGrid_" Width="250">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="261*"/>
+                    <ColumnDefinition Width="0*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle HorizontalAlignment="Left" Height="510" Margin="7,26.5,0,0" VerticalAlignment="Top" Width="230" RenderTransformOrigin="0.5,0.5" Stroke="#FF4D4D4D">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="-9"/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="icon 2.png" Stretch="Uniform">
+                            <ImageBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.75" ScaleY="0.75"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform Y="-0.31"/>
+                                </TransformGroup>
+                            </ImageBrush.RelativeTransform>
+                        </ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock HorizontalAlignment="Left" Height="34" Margin="68.5,242.5,0,0" TextWrapping="Wrap" Text="Game Boost" VerticalAlignment="Top" Width="100.5" Foreground="#FF999999" TextAlignment="Center" FontSize="16"/>
+                <Button Content="Boost" HorizontalAlignment="Left" Height="30.5" Margin="63,276.5,0,0" VerticalAlignment="Top" Width="114" Background="#FF003018" Foreground="#FFF0DBDB">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <TextBlock HorizontalAlignment="Left" Height="91.167" Margin="43,367.833,0,0" TextWrapping="Wrap" Text="Stop Unnecessary apps/services for a better gaming experience" VerticalAlignment="Top" Width="153" Foreground="#FF8C8C8C" TextAlignment="Center"/>
+
+            </Grid>
+            <Grid x:Name="GameBoostGrid__Copy" Width="243">
+                <Rectangle HorizontalAlignment="Left" Height="510" Margin="-45.5,28,0,0" VerticalAlignment="Top" Width="230" RenderTransformOrigin="0.5,0.5" Stroke="#FF4D4D4D">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="-9"/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="i_icon 2.png" Stretch="Uniform">
+                            <ImageBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.75" ScaleY="0.75"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform Y="-0.31"/>
+                                </TransformGroup>
+                            </ImageBrush.RelativeTransform>
+                        </ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock HorizontalAlignment="Left" Height="34" Margin="16,242.5,0,0" TextWrapping="Wrap" Text="Internet Boost" VerticalAlignment="Top" Width="100.5" Foreground="#FF999999" TextAlignment="Center" FontSize="16"/>
+                <Button Content="Boost" HorizontalAlignment="Left" Height="30.5" Margin="10.5,276.5,0,0" VerticalAlignment="Top" Width="114" Background="#FF003018" Foreground="#FFF0DBDB">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <TextBlock HorizontalAlignment="Left" Height="91.167" Margin="-9.5,367.833,0,0" TextWrapping="Wrap" Text="Install VPN to boost and secure your internet connection" VerticalAlignment="Top" Width="153" Foreground="#FF8C8C8C" TextAlignment="Center"/>
+
+            </Grid>
+            <Grid x:Name="GameBoostGrid__Copy1" Width="264">
+                <Rectangle HorizontalAlignment="Left" Height="510" Margin="-87.5,28,0,0" VerticalAlignment="Top" Width="230" RenderTransformOrigin="0.5,0.5" Stroke="#FF4D4D4D">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="0.75" ScaleY="0.75"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="-9"/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="s_icon 2.png" Stretch="Uniform">
+                            <ImageBrush.RelativeTransform>
+                                <TransformGroup>
+                                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.75" ScaleY="0.75"/>
+                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                    <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                    <TranslateTransform Y="-0.31"/>
+                                </TransformGroup>
+                            </ImageBrush.RelativeTransform>
+                        </ImageBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <TextBlock HorizontalAlignment="Left" Height="34" Margin="-26,242.5,0,0" TextWrapping="Wrap" Text="System Boost" VerticalAlignment="Top" Width="100.5" Foreground="#FF999999" TextAlignment="Center" FontSize="16"/>
+                <Button Content="Boost" HorizontalAlignment="Left" Height="30.5" Margin="-31.5,276.5,0,0" VerticalAlignment="Top" Width="114" Background="#FF003018" Foreground="#FFF0DBDB">
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="7"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <TextBlock HorizontalAlignment="Left" Height="91.167" Margin="-51.5,368.166,0,0" TextWrapping="Wrap" Text="Junk files, privacy, traces, etc. are not good for PC. Please check if there is any on your PC now." VerticalAlignment="Top" Width="153" Foreground="#FF8C8C8C" TextAlignment="Center"/>
+
+            </Grid>
+
+        </StackPanel>
+
+    </Grid>
+</Page>
