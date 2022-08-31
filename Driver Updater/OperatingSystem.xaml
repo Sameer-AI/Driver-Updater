@@ -25,7 +25,7 @@
                             </ImageBrush>
                         </TextBlock.Background></TextBlock>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
                     <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Computer Name" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8" Padding="25,0,0,0">
                         <TextBlock.Background>
                             <ImageBrush Stretch="Uniform" ImageSource="14.png">
@@ -40,7 +40,7 @@
                             </ImageBrush>
                         </TextBlock.Background>
                     </TextBlock>
-                    <TextBlock x:Name="CompName" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                    <TextBlock x:Name="CompName" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="0" Text="sample" Foreground="#FFD8D8D8"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
                     <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="User Name" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8" Padding="25,0,0,0">
@@ -57,7 +57,7 @@
                             </ImageBrush>
                         </TextBlock.Background>
                     </TextBlock>
-                    <TextBlock x:Name="UserName" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                    <TextBlock x:Name="UserName" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="0" Text="sample" Foreground="#FFD8D8D8"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
                     <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Oragnization" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8" Padding="25,0,0,0">
@@ -74,41 +74,26 @@
                             </ImageBrush>
                         </TextBlock.Background>
                     </TextBlock>
-                    <TextBlock x:Name="Organization" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                    <TextBlock x:Name="Organization" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="0" Text="sample" Foreground="#FFD8D8D8"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Operating System" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8"/>
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Operating System" VerticalAlignment="Top" Width="150" Margin="0,30,0,0" Foreground="#FFD8D8D8"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
                     <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="OS Name" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8"/>
-                    <TextBlock x:Name="OSName" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                    <TextBlock x:Name="OSName" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="0" Text="sample" Foreground="#FFD8D8D8"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
                     <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="OS Version" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8"/>
-                    <TextBlock x:Name="OSVersion" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                    <TextBlock x:Name="OSVersion" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="0" Text="sample" Foreground="#FFD8D8D8"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
                     <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Product ID" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8"/>
-                    <TextBlock x:Name="ProductID" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                    <TextBlock x:Name="ProductID" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="0" Text="sample" Foreground="#FFD8D8D8"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
                     <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8"><Run Text="Architecture"/><LineBreak/><Run/></TextBlock>
-                    <TextBlock x:Name="Architecture" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Foreground="#FFD8D8D8" Text="na"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8"><Run Text="Registry"/></TextBlock>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Maximum Size" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8"/>
-                    <TextBlock x:Name="MREG" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Current Size" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8"/>
-                    <TextBlock x:Name="CREG" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Status " VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8"/>
-                    <TextBlock x:Name="SREG" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                    <TextBlock x:Name="Architecture" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8" Text="na"/>
                 </StackPanel>
             </StackPanel>
         </ScrollViewer>

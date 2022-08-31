@@ -9,96 +9,161 @@
       Title="Processor_motherboard_page
       ">
     <Grid Background="#FF3B3B3B">
-        <StackPanel Margin="10,9,10,10" Orientation="Vertical">
-            <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Processor" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8" Padding="25,0,0,0">
-                    <TextBlock.Background>
-                        <ImageBrush Stretch="Uniform" ImageSource="13.png">
-                            <ImageBrush.RelativeTransform>
-                                <TransformGroup>
-                                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.65" ScaleY="0.65"/>
-                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                    <RotateTransform CenterY="0.5" CenterX="0.5"/>
-                                    <TranslateTransform X="-0.45"/>
-                                </TransformGroup>
-                            </ImageBrush.RelativeTransform>
-                        </ImageBrush>
-                    </TextBlock.Background>
-                </TextBlock>
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+        <ScrollViewer HorizontalAlignment="Left" Height="325" VerticalAlignment="Top" Width="425" CanContentScroll="True">
+            <StackPanel Orientation="Vertical" Height="325" Width="405">
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Central Processor" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8" Padding="25,0,0,0">
+                        <TextBlock.Background>
+                            <ImageBrush Stretch="Uniform" ImageSource="13.png">
+                                <ImageBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.65" ScaleY="0.65"/>
+                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                        <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                        <TranslateTransform X="-0.45"/>
+                                    </TransformGroup>
+                                </ImageBrush.RelativeTransform>
+                            </ImageBrush>
+                        </TextBlock.Background>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8" Padding="25,0,0,0">
+                        <TextBlock.Background>
+                            <ImageBrush Stretch="Uniform" ImageSource="14.png">
+                                <ImageBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.65" ScaleY="0.65"/>
+                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                        <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                        <TranslateTransform X="-0.45"/>
+                                    </TransformGroup>
+                                </ImageBrush.RelativeTransform>
+                            </ImageBrush>
+                        </TextBlock.Background><Run Text="CPU Name"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="CPUName" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="25,0,0,0" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="43" TextWrapping="Wrap" Text="Number of Logical Processors" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8" Padding="25,0,0,0">
+                        <TextBlock.Background>
+                            <ImageBrush ImageSource="15.png" Stretch="Uniform">
+                                <ImageBrush.RelativeTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.6" ScaleY="0.6"/>
+                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
+                                        <RotateTransform CenterY="0.5" CenterX="0.5"/>
+                                        <TranslateTransform X="-0.43"/>
+                                    </TransformGroup>
+                                </ImageBrush.RelativeTransform>
+                            </ImageBrush>
+                        </TextBlock.Background>
+                    </TextBlock>
+                    <TextBlock x:Name="NumberOfCores" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Foreground="#FFD8D8D8"><Run Text="sssss"/><LineBreak/><Run/></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="Manufacturer"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="Manufacturer" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="Current Clock Speed"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="CurrentClockSpeed" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="Max Clock Speed"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="MaxClockSpeed" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="Voltage"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="CurrentVoltage" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="External Clock"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="ExternalClock" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="Serial Number"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="SerialNumber" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="CPU ID"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="CPUID" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8" Text="Socket Designation"/>
+                    <TextBlock x:Name="SocketDesignation" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="L2-Cache"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="L2" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="L3-Cache"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="L3" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="Motherboard"/><LineBreak/><Run/></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="Model"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="MotherBoardModel" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="Manufacturer"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="MotherBoardManufacturer" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="Serial Number"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="MotherBoardSN" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="BIOS Name"/><LineBreak/><Run/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="BIOSName" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="BIOS Vendor"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="BIOSVendor" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="SMBIOS Version"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="SMBIOSVersion" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8" Text="BIOS Features"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8" Text="PCI is Supported"/>
+                    <TextBlock x:Name="PCISupport" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Foreground="#FFD8D8D8" Text="Yes"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="BIOS is Upgradable (Flash)"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="BIOSUpgrade" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="Yes" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8" Text="BIOS shadowing is allowed"/>
+                    <TextBlock x:Name="BIOSShadowing" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="Yes" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8" Text="Boot from CD is supported"/>
+                    <TextBlock x:Name="BootFromCd" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="Yes" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8" Text="Selectable is Supported"/>
+                    <TextBlock x:Name="Selectable" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="Yes" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8"><Run Text="EDD is supported"/><LineBreak/><Run/></TextBlock>
+                    <TextBlock x:Name="EDD" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="Yes" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8" Text="ACPI Supported"/>
+                    <TextBlock HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="Yes" Foreground="#FFD8D8D8"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    <TextBlock HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Margin="0" Foreground="#FFD8D8D8" Text="USB Legacy is  Supported"/>
+                    <TextBlock HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="20,0,0,0" Text="Yes" Foreground="#FFD8D8D8"/>
+                </StackPanel>
             </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Graphics Card" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8" Padding="25,0,0,0">
-                    <TextBlock.Background>
-                        <ImageBrush Stretch="Uniform" ImageSource="14.png">
-                            <ImageBrush.RelativeTransform>
-                                <TransformGroup>
-                                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.65" ScaleY="0.65"/>
-                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                    <RotateTransform CenterY="0.5" CenterX="0.5"/>
-                                    <TranslateTransform X="-0.45"/>
-                                </TransformGroup>
-                            </ImageBrush.RelativeTransform>
-                        </ImageBrush>
-                    </TextBlock.Background>
-                </TextBlock>
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Memory" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8" Padding="25,0,0,0">
-                    <TextBlock.Background>
-                        <ImageBrush ImageSource="15.png" Stretch="Uniform">
-                            <ImageBrush.RelativeTransform>
-                                <TransformGroup>
-                                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.6" ScaleY="0.6"/>
-                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                    <RotateTransform CenterY="0.5" CenterX="0.5"/>
-                                    <TranslateTransform X="-0.43"/>
-                                </TransformGroup>
-                            </ImageBrush.RelativeTransform>
-                        </ImageBrush>
-                    </TextBlock.Background>
-                </TextBlock>
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Monitor" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8" Padding="25,0,0,0">
-                    <TextBlock.Background>
-                        <ImageBrush ImageSource="11.png" Stretch="Uniform">
-                            <ImageBrush.RelativeTransform>
-                                <TransformGroup>
-                                    <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.65" ScaleY="0.65"/>
-                                    <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                    <RotateTransform CenterY="0.5" CenterX="0.5"/>
-                                    <TranslateTransform X="-0.45"/>
-                                </TransformGroup>
-                            </ImageBrush.RelativeTransform>
-                        </ImageBrush>
-                    </TextBlock.Background>
-                </TextBlock>
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Disk Storage" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8"/>
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Audio" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8"/>
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Motherboard" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8"/>
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Mouse" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8"/>
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Keyboard" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8"/>
-                <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
-            </StackPanel>
-        </StackPanel>
+        </ScrollViewer>
 
     </Grid>
 </Page>

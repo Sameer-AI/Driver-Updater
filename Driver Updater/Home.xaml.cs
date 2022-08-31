@@ -20,7 +20,7 @@ namespace Driver_Updater
 {
     /// <summary>
     /// Interaction logic for Home.xaml
-    /// </summary>
+    /// </summary>  
     public partial class Home : Page
     {
         public Home()
