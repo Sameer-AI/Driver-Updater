@@ -32,23 +32,15 @@ namespace Driver_Updater
         {
             InitializeComponent();
             getData();
-            setDataGrid();
-
-
-
-
-
-
-
-
-
-
+           
 
 
         }
 
         public void getData()
         {
+            int i = 0;
+            long totalMemory = 0;
 
             ManagementObjectSearcher objSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMemory");
 
@@ -58,62 +50,81 @@ namespace Driver_Updater
             {
 
 
-                //foreach (PropertyData property in obj.Properties)
-                //{
-                //    Console.Out.WriteLine(String.Format("{0}:{1}", property.Name, property.Value));
-                //}
-
                 Devices.Add(new MemoryDeviceDataStore
                 {
-                    MemoryBank = obj["BankLabel"].ToString(),
-                    Description = obj["Description"].ToString(),
-                    DeviceLocator = obj["DeviceLocator"].ToString(),
-                    Capacity = obj["Capacity"].ToString(),
-                    Speed =String.Format("{0} Hz",obj["Speed"].ToString()) , //String.Format("Hello {0}", name)
-                    Manufacturer = obj["Manufacturer"].ToString(),
-                    DataWidth = obj["DataWidth"].ToString(),
-                    MemoryType = obj["MemoryType"].ToString(),
-                    FormFactor = obj["FormFactor"].ToString()
+                MemoryBank = obj["BankLabel"].ToString(),
+                Description = obj["Description"].ToString(),
+                DeviceLocator = obj["DeviceLocator"].ToString(),
+                Capacity = obj["Capacity"].ToString(),
+                Speed = String.Format("{0} Hz", obj["Speed"].ToString()), //String.Format("Hello {0}", name)
+                Manufacturer = obj["Manufacturer"].ToString(),
+                DataWidth = obj["DataWidth"].ToString(),
+                MemoryType = obj["MemoryType"].ToString(),
+                FormFactor = obj["FormFactor"].ToString()
+
                 });
 
-               
+                totalMemory += long.Parse(obj["Capacity"].ToString());
+
+                this.TotalMem.Text =String.Format("{0} GB", totalMemory.ToString());
+                Frames.Add(new DynamicGridFrame(Devices[i]));
+
+
+
+                this.deviceshowstack.Children.Add(Frames[i]);
+                i++;
+
 
             }
 
             
         }
-        
-        public void setDataGrid()
-        {
-           // here we first set the number of frames required based upon the number of devices
-            foreach(MemoryDeviceDataStore singleDevice in Devices)
-            {
-               
-                Frames.Add(new DynamicGridFrame
-                {
-                  Label=singleDevice.PhysicalMemoryLabel,
-                  Label1=singleDevice.MemoryBankLabel,
-                  Label2=singleDevice.DescriptionLabel,
-                  Label3=singleDevice.DeviceLocatorLabel,
-                  Label4=singleDevice.CapacityLabel,
-                  Label5=singleDevice.Speed,
-                  Label6=singleDevice.ManufacturerLabel,
-                  Label7=singleDevice.DataWidthLabel,
-                  Label8=singleDevice.MemoryTypeLabel,
-                  Label9=singleDevice.FormFactorLabel
-                  
-                }
-                );
-            }
+        /*
+       public void setDataGrid()
+       {
+          // here we first set the number of frames required based upon the number of devices
+           foreach(MemoryDeviceDataStore singleDevice in Devices)
+           {
 
-            foreach(DynamicGridFrame frame in Frames)
-            {
-                
-                this.deviceshowstack.Children.Add(frame);
-                
-            }
+               Frames.Add(new DynamicGridFrame());
 
-            
-        }
+               Frames[i].Label = "hshshshhshs";
+               Frames[i].Label1 = singleDevice.MemoryBankLabel;
+               Frames[i].Label2 = singleDevice.DescriptionLabel;
+               Frames[i].Label3 = singleDevice.DeviceLocatorLabel;
+               Frames[i].Label4 = singleDevice.CapacityLabel;
+               Frames[i].Label5 = singleDevice.Speed;
+               Frames[i].Label6 = singleDevice.ManufacturerLabel;
+               Frames[i].Label7 = singleDevice.DataWidthLabel;
+               Frames[i].Label8 = singleDevice.MemoryTypeLabel;
+               Frames[i].Label9 = singleDevice.FormFactorLabel;
+
+               Console.WriteLine(singleDevice.Manufacturer);
+
+
+           }
+
+
+           foreach(DynamicGridFrame frame in Frames)
+           {
+                 frame.Label = "hshshshhshs",
+                 frame.Label1 = singleDevice.MemoryBankLabel,
+                 frame.Label2 = singleDevice.DescriptionLabel,
+                 frame.Label3 = singleDevice.DeviceLocatorLabel,
+                 frame.Label4 = singleDevice.CapacityLabel,
+                 frame.Label5 = singleDevice.Speed,
+                 frame.Label6 = singleDevice.ManufacturerLabel,
+                 frame.Label7 = singleDevice.DataWidthLabel,
+                 frame.Label8 = singleDevice.MemoryTypeLabel,
+                 frame.Label9 = singleDevice.FormFactorLabel
+
+
+               this.deviceshowstack.Children.Add(frame);
+               Console.WriteLine("lol");
+
+           }*/
+
+
     }
 }
+

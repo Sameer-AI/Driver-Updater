@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Driver_Updater
 {
     /// <summary>
-    /// Interaction logic for Network_Page.xaml
+    /// Interaction logic for DriverScanningPage.xaml
     /// </summary>
-    public partial class Network_Page : Page
+    public partial class DriverScanningPage : Page
     {
-        public Network_Page()
+        public DriverScanningPage()
         {
             InitializeComponent();
         }

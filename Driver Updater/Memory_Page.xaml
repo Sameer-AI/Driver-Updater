@@ -43,42 +43,9 @@
                             </ImageBrush>
                         </TextBlock.Background>
                     </TextBlock>
-                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
+                    <TextBlock x:Name="TotalMem" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Used Memory" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8" Padding="25,0,0,0">
-                        <TextBlock.Background>
-                            <ImageBrush ImageSource="15.png" Stretch="Uniform">
-                                <ImageBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.6" ScaleY="0.6"/>
-                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                        <RotateTransform CenterY="0.5" CenterX="0.5"/>
-                                        <TranslateTransform X="-0.43"/>
-                                    </TransformGroup>
-                                </ImageBrush.RelativeTransform>
-                            </ImageBrush>
-                        </TextBlock.Background>
-                    </TextBlock>
-                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
-                    <TextBlock x:Name="FreeMemory" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Free Memory" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8" Padding="25,0,0,0">
-                        <TextBlock.Background>
-                            <ImageBrush ImageSource="11.png" Stretch="Uniform">
-                                <ImageBrush.RelativeTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform CenterY="0.5" CenterX="0.5" ScaleX="0.65" ScaleY="0.65"/>
-                                        <SkewTransform CenterY="0.5" CenterX="0.5"/>
-                                        <RotateTransform CenterY="0.5" CenterX="0.5"/>
-                                        <TranslateTransform X="-0.45"/>
-                                    </TransformGroup>
-                                </ImageBrush.RelativeTransform>
-                            </ImageBrush>
-                        </TextBlock.Background>
-                    </TextBlock>
-                    <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="75,0,0,0" Text="sample" Foreground="#FFD8D8D8"/>
-                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0"/>
 
             </StackPanel>
         </ScrollViewer>

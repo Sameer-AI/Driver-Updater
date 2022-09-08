@@ -182,13 +182,21 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="DriverScanningPage.xaml.cs">
+      <DependentUpon>DriverScanningPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DriverScanResultPage.xaml.cs">
+      <DependentUpon>DriverScanResultPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DynamicGridFrame.xaml.cs">
       <DependentUpon>DynamicGridFrame.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HardDiskDataStrore.cs" />
     <Compile Include="MemoryDeviceDataStore.cs" />
     <Compile Include="Memory_Page.xaml.cs">
       <DependentUpon>Memory_Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MonitorDeviceDataStore.cs" />
     <Compile Include="OperatingSystem.xaml.cs">
       <DependentUpon>OperatingSystem.xaml</DependentUpon>
     </Compile>
@@ -210,12 +218,16 @@
     <Compile Include="Drives_Page.xaml.cs">
       <DependentUpon>Drives_Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Network_Page.xaml.cs">
-      <DependentUpon>Network_Page.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="VideoDriverDataStore.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
+    <Page Include="DriverScanningPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DriverScanResultPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DynamicGridFrame.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -271,9 +283,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Drives_Page.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Network_Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Window1.xaml">

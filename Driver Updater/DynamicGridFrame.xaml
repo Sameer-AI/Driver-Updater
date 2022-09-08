@@ -9,48 +9,48 @@
         <StackPanel Margin="0,10,0,0">
             <StackPanel Orientation="Horizontal" Width="700">
                 <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="10" Stroke="Black" VerticalAlignment="Center" Width="10" Margin="5 -15 0 0"/>
-                <TextBlock x:Name="label" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,20" Foreground="AntiqueWhite"/>
+                <TextBlock x:Name="label" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,20" Foreground="#FFD8D8D8"/>
                
             </StackPanel>
             <StackPanel Orientation="Horizontal" Width="700">
                 <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="10" Stroke="Black" VerticalAlignment="Center" Width="10" Margin="5 -7 0 0"/>
-                <TextBlock x:Name="label1" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,10" Foreground="AntiqueWhite"/>
-                <TextBlock x:Name="value1" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Width="190" Margin="10,0,0,10" Foreground="AntiqueWhite"/>
+                <TextBlock x:Name="label1" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,10" Foreground="#FFD8D8D8"/>
+                <TextBlock x:Name="value1" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Width="190" Margin="10,0,0,10" Foreground="#FFD8D8D8"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Width="700">
                 <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="10" Stroke="Black" VerticalAlignment="Center" Width="10" Margin="5 -7 0 0"/>
-                <TextBlock x:Name="label2" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,10" Foreground="AntiqueWhite"/>
-                <TextBlock x:Name="value2" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Width="190" Margin="10,0,0,10" Foreground="AntiqueWhite"/>
+                <TextBlock x:Name="label2" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,10" Foreground="#FFD8D8D8"/>
+                <TextBlock x:Name="value2" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Width="190" Margin="10,0,0,10" Foreground="#FFD8D8D8"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Width="700">
                 <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="10" Stroke="Black" VerticalAlignment="Center" Width="10" Margin="5 -7 0 0" />
-                <TextBlock x:Name="label3" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,10" Foreground="AntiqueWhite"/>
-                <TextBlock x:Name="value3" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Width="190" Margin="10,0,0,10" Foreground="AntiqueWhite"/>
+                <TextBlock x:Name="label3" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,10" Foreground="#FFD8D8D8"/>
+                <TextBlock x:Name="value3" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Width="190" Margin="10,0,0,10" Foreground="#FFD8D8D8"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Width="700">
                 <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="10" Stroke="Black" VerticalAlignment="Center" Width="10" Margin="5 -7 0 0"/>
-                <TextBlock x:Name="label4" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,10" Foreground="AntiqueWhite"/>
-                <TextBlock x:Name="value4" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Width="190" Margin="10,0,0,10" Foreground="AntiqueWhite"/>
+                <TextBlock x:Name="label4" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,10" Foreground="#FFD8D8D8"/>
+                <TextBlock x:Name="value4" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Width="190" Margin="10,0,0,10" Foreground="#FFD8D8D8"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Width="700">
                 <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="10" Stroke="Black" VerticalAlignment="Center" Width="10" Margin="5 -7 0 0"/>
-                <TextBlock x:Name="label5" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,10" Foreground="AntiqueWhite"/>
-                <TextBlock x:Name="value5" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Width="190" Margin="10,0,0,10" Foreground="AntiqueWhite"/>
+                <TextBlock x:Name="label5" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,10" Foreground="#FFD8D8D8"/>
+                <TextBlock x:Name="value5" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Width="190" Margin="10,0,0,10" Foreground="#FFD8D8D8"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Width="700">
                 <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="10" Stroke="Black" VerticalAlignment="Center" Width="10" Margin="5 -7 0 0"/>
-                <TextBlock x:Name="label6" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,10" Foreground="AntiqueWhite"/>
-                <TextBlock x:Name="value6" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Width="190" Margin="10,0,0,10" Foreground="AntiqueWhite"/>
+                <TextBlock x:Name="label6" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,10" Foreground="#FFD8D8D8"/>
+                <TextBlock x:Name="value6" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Width="190" Margin="10,0,0,10" Foreground="#FFD8D8D8"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Width="700">
                 <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="10" Stroke="Black" VerticalAlignment="Center"  Width="10" Margin="5 -7 0 0"/>
-                <TextBlock x:Name="label7" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,10" Foreground="AntiqueWhite"/>
-                <TextBlock x:Name="value7" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Width="190" Margin="10,0,0,10" Foreground="AntiqueWhite"/>
+                <TextBlock x:Name="label7" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,10" Foreground="#FFD8D8D8"/>
+                <TextBlock x:Name="value7" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Width="190" Margin="10,0,0,10" Foreground="#FFD8D8D8"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Width="700">
                 <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="10" Stroke="Black" VerticalAlignment="Center" Width="10" Margin="5 -7 0 0"/>
-                <TextBlock x:Name="label8" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,10" Foreground="AntiqueWhite"/>
-                <TextBlock x:Name="value8" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Width="190" Margin="10,0,0,10" Foreground="AntiqueWhite"/>
+                <TextBlock x:Name="label8" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="Label" VerticalAlignment="Top" Width="190" Margin="15,0,0,10" Foreground="#FFD8D8D8"/>
+                <TextBlock x:Name="value8" HorizontalAlignment="Left" Height="15" TextWrapping="Wrap" Text="value" VerticalAlignment="Top" Width="190" Margin="10,0,0,10" Foreground="#FFD8D8D8"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Width="700">
                 <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="10" Stroke="Black" VerticalAlignment="Center" Width="10" Margin="5 -7 0 0"/>

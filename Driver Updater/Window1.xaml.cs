@@ -77,11 +77,7 @@ namespace Driver_Updater
             this.infoSwitch.Content = page;
         }
 
-        private void networkPage(object sender, RoutedEventArgs e)
-        {
-            Network_Page page = new Network_Page();
-            this.infoSwitch.Content = page;
-        }
+       
     }
  }
 

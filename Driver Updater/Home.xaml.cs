@@ -121,5 +121,11 @@ namespace Driver_Updater
 
 
         }
+
+        private void startScan(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
+     

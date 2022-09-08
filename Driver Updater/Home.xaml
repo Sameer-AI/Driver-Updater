@@ -433,7 +433,7 @@
             Content="Scan"
             FontSize="0.01"
             Foreground="#00FFFDFD"
-            RenderTransformOrigin="0.5,0.5">
+            RenderTransformOrigin="0.5,0.5" Click="startScan">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="200" />
