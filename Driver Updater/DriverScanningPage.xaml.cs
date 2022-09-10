@@ -23,6 +23,33 @@ namespace Driver_Updater
         public DriverScanningPage()
         {
             InitializeComponent();
+
+            progressBarValueChanger();
+            pageChanger();
         }
+
+        private void progressBarValueChanger()
+        { for (int i=0 ; i<=100 ; i++)
+            {
+
+                this.loader.Value = i;
+            
+            }
+            
+        }
+
+        private void pageChanger()
+        {
+            
+
+            NavigationService navService = NavigationService.GetNavigationService(this);
+            DriverScanResultPage page2 = new DriverScanResultPage();
+            
+
+            ;
+
+        }
+
+
     }
 }

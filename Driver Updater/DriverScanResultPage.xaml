@@ -8,7 +8,7 @@
       d:DesignHeight="600" d:DesignWidth="800"
       Title="DriverScanResultPage">
 
-    <Grid Width="690" Height="610" Margin="0.192,-4.5,109.807,-5.5">
+    <Grid Width="690" Height="610" Margin="0,-4.5,28,0">
         <Grid.Background>
             <ImageBrush ImageSource="backdrop.png"/>
         </Grid.Background>
@@ -20,6 +20,9 @@
         <ScrollViewer HorizontalAlignment="Left" Height="418.5" Margin="0,181.5,0,0" VerticalAlignment="Top" Width="690" RenderTransformOrigin="0.5,0.5">
 
         </ScrollViewer>
-        <Grid HorizontalAlignment="Left" Height="27.825" Margin="0,148.675,0,0" VerticalAlignment="Top" Width="690"/>
+        <Grid HorizontalAlignment="Left" Height="27.825" Margin="0,148.675,0,0" VerticalAlignment="Top" Width="690" Background="#FFB2A4A4">
+            <CheckBox Content="Update" HorizontalAlignment="Left" Margin="10,2.726,0,0" VerticalAlignment="Top" Height="25.099" FontSize="16" Width="115.728"/>
+        </Grid>
     </Grid>
 </Page>
+  
