@@ -16,29 +16,13 @@ using System.Windows.Shapes;
 namespace Driver_Updater
 {
     /// <summary>
-    /// Interaction logic for DriverScanResultPage.xaml
+    /// Interaction logic for DriverInfoPop.xaml
     /// </summary>
-    public partial class DriverScanResultPage : Page
+    public partial class DriverInfoPop : UserControl
     {
-        List<DriverResultListFrame> Frames = new List<DriverResultListFrame>();
-
-        public DriverScanResultPage()
+        public DriverInfoPop()
         {
             InitializeComponent();
-            
-
-        }
-
-
-
-        public void get()
-        {   
-
-        }
-
-        public void set()
-        {
-
         }
     }
 }

@@ -182,6 +182,9 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="DriverInfoPop.xaml.cs">
+      <DependentUpon>DriverInfoPop.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DriverResultListFrame.xaml.cs">
       <DependentUpon>DriverResultListFrame.xaml</DependentUpon>
     </Compile>
@@ -200,6 +203,9 @@
       <DependentUpon>Memory_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="MonitorDeviceDataStore.cs" />
+    <Compile Include="OldDriverInfo.xaml.cs">
+      <DependentUpon>OldDriverInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="OperatingSystem.xaml.cs">
       <DependentUpon>OperatingSystem.xaml</DependentUpon>
     </Compile>
@@ -221,10 +227,14 @@
     <Compile Include="Drives_Page.xaml.cs">
       <DependentUpon>Drives_Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ScannedDriverDataStore.cs" />
     <Compile Include="VideoDriverDataStore.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
+    <Page Include="DriverInfoPop.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DriverResultListFrame.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -256,6 +266,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Memory_Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OldDriverInfo.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OperatingSystem.xaml">

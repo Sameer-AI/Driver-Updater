@@ -115,8 +115,7 @@ namespace Driver_Updater
         private void startScan(object sender, RoutedEventArgs e)
         {
             NavigationService navService = NavigationService.GetNavigationService(this);
-            //DriverScanningPage page = new DriverScanningPage();
-            DriverScanResultPage page = new DriverScanResultPage();
+            DriverScanningPage page = new DriverScanningPage();
             navService.Navigate(page);
 
 

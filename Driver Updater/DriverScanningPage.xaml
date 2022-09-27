@@ -12,8 +12,8 @@
         <Grid.Background>
             <ImageBrush ImageSource="backdrop.png"/>
         </Grid.Background>
-        <TextBlock HorizontalAlignment="Left" Height="51" Margin="51,78,0,0" TextWrapping="Wrap" Text="Scanning Page" VerticalAlignment="Top" Width="387" Foreground="#FFFFF2F2" FontSize="36"/>
-        <ProgressBar x:Name="loader" HorizontalAlignment="Left" Height="28" Margin="51,172,0,0" VerticalAlignment="Top" Width="532" RenderTransformOrigin="0.5,0.5" Value="56" Foreground="#FFB0B0B0" Background="{x:Null}">
+        <TextBlock HorizontalAlignment="Left" Height="51" Margin="33,78,0,0" TextWrapping="Wrap" Text="Scanning Page" VerticalAlignment="Top" Width="387" Foreground="#FFFFF2F2" FontSize="36"/>
+        <ProgressBar x:Name="loader" HorizontalAlignment="Left" Height="28" Margin="33,172,0,0" VerticalAlignment="Top" Width="532" RenderTransformOrigin="0.5,0.5" Value="56" Foreground="#FFB0B0B0" Background="{x:Null}">
             <ProgressBar.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleY="-1"/>
@@ -23,7 +23,8 @@
                 </TransformGroup>
             </ProgressBar.RenderTransform>
         </ProgressBar>
-        <TextBlock HorizontalAlignment="Left" Height="51" Margin="51,214,0,0" TextWrapping="Wrap" Text="DriverList" VerticalAlignment="Top" Width="387" Foreground="#FFFFF2F2" FontSize="36"/>
+        <TextBlock x:Name="driverNames" HorizontalAlignment="Left" Height="51" Margin="51,214,0,0" TextWrapping="Wrap" Text="DriverList" VerticalAlignment="Top" Width="387" Foreground="#FFFFF2F2" FontSize="36"/>
+        <TextBlock x:Name="loaderText" HorizontalAlignment="Left" Height="36" Margin="577.5,164.5,0,0" TextWrapping="Wrap" Text="87" VerticalAlignment="Top" Width="73.5" Foreground="#FFFFF2F2" FontSize="28"/>
 
     </Grid>
 </Page>

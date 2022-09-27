@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="Driver_Updater.OldDriverInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Driver_Updater"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="450">
+    <Grid>
+        <Grid Margin="0,0,0,0">
+            <StackPanel Orientation="Horizontal">
+
+                <Grid Width="449.383" Background="#FF6A6464">
+                    <StackPanel Orientation="Vertical">
+
+                        <StackPanel Orientation="Horizontal">
+
+                            <Rectangle Fill="#FFF4F4F5" Height="55" Margin="10,5,0,10" Width="54" />
+
+                            <StackPanel Margin="20,5,0,0" Orientation="Vertical">
+
+                                <TextBlock Foreground="#FFEEE9E9"><Run Text="SCSIADAPTER"/></TextBlock>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Foreground="#FFEEE9E9" Text="Category :   "/>
+                                    <TextBlock Foreground="#FFEEE9E9"><Run Text="Intel Chipset SATA RAID Controller"/></TextBlock>
+
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <Grid Height="150.539" Margin="10,0,0,0" Width="187.794">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Row="0"  Foreground="#FF36393C" Background="#FFC1C4C7" FontSize="10" RenderTransformOrigin="0.5,0.5" Padding="10,8,0,0"  Text="Current"  />
+                                <TextBlock Grid.Row="0" Grid.Column="1" Foreground="#FF36393C" Background="#FFC1C4C7" FontSize="10" RenderTransformOrigin="0.5,0.5" Padding="10,8,0,0"  Text="Available"  />
+                                <TextBlock Grid.Column="0" Grid.Row="1" Foreground="#FF36393C" Background="#FFD6DDE2"  Text="Version" FontSize="10" RenderTransformOrigin="0.5,0.5" Padding="10,8,0,0"  />
+                                <TextBlock Grid.Column="1" Grid.Row="1" Foreground="#FF36393C" Background="#FFD6DDE2" FontSize="10" RenderTransformOrigin="0.5,0.5" Padding="10,8,0,0"  ><Run Text="Details"/></TextBlock>
+                                <TextBlock Grid.Column="0" Grid.Row="2" Foreground="#FF36393C" Background="#FFD6DDE2"  Text="Date" FontSize="10" RenderTransformOrigin="0.5,0.5" Padding="10,8,0,0"  />
+                                <TextBlock Grid.Column="1" Grid.Row="2" Foreground="#FF36393C" Background="#FFD6DDE2" FontSize="10" RenderTransformOrigin="0.5,0.5" Padding="10,8,0,0"  ><Run Text="Details"/></TextBlock>
+                                <TextBlock Grid.Column="0" Grid.Row="3" Foreground="#FF36393C" Background="#FFD6DDE2"  Text="Publisher" FontSize="10" RenderTransformOrigin="0.5,0.5" Padding="10,8,0,0"  />
+                                <TextBlock Grid.Column="1" Grid.Row="3" Foreground="#FF36393C" Background="#FFD6DDE2" FontSize="10" RenderTransformOrigin="0.5,0.5" Padding="10,8,0,0"  ><Run Text="Details"/></TextBlock>
+                                <TextBlock Margin="0,1,0,-12" Grid.ColumnSpan="2" Grid.Row="4" Grid.RowSpan="2" Foreground="#FF36393C" Background="#FFD6DDE2" FontSize="10" RenderTransformOrigin="0.5,0.5" Padding="10,18,0,0"  Text="Driver Status : "  />
+
+                            </Grid>
+
+                            <Grid Margin="20,0,0,0" Width="226.527" Height="168.539" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+
+                                <TextBlock Grid.Row="0"  Foreground="White"  FontSize="10" Padding="0,5,0,0"  Text="Register now To Enjoy :"  />
+                                <TextBlock Grid.Row="1"  Foreground="White"  FontSize="10" Margin="0,5,0,0" Padding="15,5,0,0"  Text="Update Outdated Drivers instantly ." />
+                                <TextBlock Grid.Row="2" Foreground="#FFEFF3F7"  Text="Ensures peak performance of Hardware ." FontSize="10"  Padding="15,5,0,0"  />
+                                <TextBlock Grid.Row="3" Foreground="White" FontSize="10" RenderTransformOrigin="0.5,0.5" Padding="15,0,0,0"  Text="Details Fewer App Crashes and system freezes ."  />
+                                <TextBlock Grid.Row="4" Foreground="White"  Text="Save Time And manual Effort" FontSize="10" RenderTransformOrigin="0.5,0.5" Padding="0,8,0,0"  />
+                                <Button    Grid.Row="5" Grid.RowSpan="2"   Margin="120,15,0,0" Content="Update All" />
+
+
+                            </Grid>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</UserControl>
