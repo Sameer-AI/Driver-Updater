@@ -89,7 +89,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
                     <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Product ID" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8"/>
-                    <TextBlock x:Name="ProductID" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="0" Text="sample" Foreground="#FFD8D8D8"/>
+                    <TextBlock x:Name="ProductID" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Margin="0" Text="sample" Foreground="#FFD8D8D8"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
                     <TextBlock HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Margin="0" Foreground="#FFD8D8D8"><Run Text="Architecture"/><LineBreak/><Run/></TextBlock>

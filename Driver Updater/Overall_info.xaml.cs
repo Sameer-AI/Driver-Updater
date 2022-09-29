@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Driver_Updater.Models;
 
 namespace Driver_Updater
 {
@@ -23,156 +24,53 @@ namespace Driver_Updater
     /// </summary>
     public partial class Overall_info : Page
     {
+        DriverUpdaterDataStoreEntities db = new DriverUpdaterDataStoreEntities();
+        
+
         public Overall_info()
         {
             InitializeComponent();
-            getOperatingSystemInfo();
-            getProcessorInfo();
-            getRamInfo();
-            getGraphicCard();
-            getDisplayInfo();
-            getDrivesInfo();
-            getHDSoundInfo();
-            getMotherBoardInfo();
-
+            setData();
+            
 
 
         }
+        
 
-        private void getOperatingSystemInfo()
+        public void setData()
         {
-            ManagementObjectSearcher mos = new ManagementObjectSearcher("select * from Win32_OperatingSystem");
-            foreach (ManagementObject managementObject in mos.Get())
+
+
+            var docs = from d in db.InfoBlockOverAlls
+                       select new
+                       {
+                           OS = d.OPERATING_SYSTEM,
+                           CPU = d.PROCESSOR,
+                           GRAPHICS_CARD = d.GRAPHICS_CARD,
+                           MEMORY = d.MEMORY,
+                           MONITOR = d.MONITOR,
+                           DISK_STORAGE = d.DISK_STORAGE,
+                           AUDIO = d.AUDIO,
+                           MOTHERBOARD = d.MOTHERBOARD,
+                           MOUSE = d.MOUSE,
+                           KEYBOARD = d.KEYBOARD
+                       };
+                
+             foreach(var item in docs)
             {
-
-                if (managementObject["Caption"] != null)
-                {
-                    OS.Text = managementObject["Caption"].ToString();   //Display operating system caption
-                }
-
-            }
-        }
-
-        private void getProcessorInfo()
-        {
-            RegistryKey processor_name = Registry.LocalMachine.OpenSubKey(@"Hardware\Description\System\CentralProcessor\0", RegistryKeyPermissionCheck.ReadSubTree);   //This registry entry contains entry for processor info.
-
-            if (processor_name != null)
-            {
-                if (processor_name.GetValue("ProcessorNameString") != null)
-                {
-                    Processor.Text = processor_name.GetValue("ProcessorNameString").ToString();   //Display processor info.
-                }
-
-            }
-
-        }
-        private void getRamInfo()
-        {
-            ManagementObjectSearcher Search = new ManagementObjectSearcher("select * from Win32_ComputerSystem");
-            foreach (ManagementObject managementObject in Search.Get())
-            {
-                double RamBytes = (Convert.ToDouble(managementObject["TotalPhysicalMemory"]));
-                RAM.Text = (Convert.ToDecimal(RamBytes / 1073741824)).ToString();
+                OS.Text=item.OS;
+                Processor.Text = item.CPU;
+                GraphicsCard.Text = item.GRAPHICS_CARD;
+                RAM.Text = item.MEMORY.ToString();
+                Monitor.Text = item.MONITOR;
+                DiskStorage.Text = item.DISK_STORAGE.ToString();
+                Audio.Text = item.AUDIO;
+                Motherboard.Text = item.MOTHERBOARD;
 
 
             }
-        }
-        private void getGraphicCard()
-        {
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_DisplayConfiguration");
-
-            string graphicsCard = string.Empty;
-            foreach (ManagementObject mo in searcher.Get())
-            {
-                foreach (PropertyData property in mo.Properties)
-                {
-                    if (property.Name == "Description")
-                    {
-                        GraphicsCard.Text = property.Value.ToString();
-                    }
-                }
-            }
-        }
-        private void getDisplayInfo()
-        {
-            string screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth.ToString();
-
-            string screenHeight = System.Windows.SystemParameters.PrimaryScreenHeight.ToString();
-
-            Monitor.Text = screenWidth + " x " + screenHeight;
+        
         }
 
-        private void getDrivesInfo()
-        {
-            // Retrieve all drives the computer has
-            DriveInfo[] drives = DriveInfo.GetDrives();
-            double totalSize = 0;
-            // Do something with those drives, like iterate through them and print their name
-            foreach (DriveInfo drive in drives)
-            {
-                if (drive.IsReady)
-                {
-                    double freeSpacePerc = (drive.AvailableFreeSpace / (float)drive.TotalSize) * 100;
-
-
-                    totalSize += drive.TotalSize;
-
-                    double TotalDiskSpace = totalSize / 1073741824;
-                    float roundedDiskSpace = (float)TotalDiskSpace;
-                    DiskStorage.Text = roundedDiskSpace.ToString() + " GB";
-
-                }
-            }
-
-
-
         }
-
-        private void getHDSoundInfo()
-        {
-            ManagementObjectSearcher objSearcher = new ManagementObjectSearcher(
-          "SELECT * FROM Win32_SoundDevice");
-
-            ManagementObjectCollection objCollection = objSearcher.Get();
-
-            foreach (ManagementObject obj in objCollection)
-            {
-
-
-                Audio.Text = obj["Caption"].ToString();
-                break;
-
-
-                // foreach (PropertyData property in obj.Properties)
-                // {
-                //   Console.Out.WriteLine(String.Format("{0}:{1}", property.Name, property.Value));
-                //  }
-                // Win32_MotherboardDevice
-            }
-
-        }
-        private void getMotherBoardInfo()
-        {
-            ManagementObjectSearcher objSearcher = new ManagementObjectSearcher(
-"SELECT * FROM Win32_ComputerSystem");
-
-            ManagementObjectCollection objCollection = objSearcher.Get();
-
-            foreach (ManagementObject obj in objCollection)
-            {
-
-
-               Motherboard.Text=obj["Model"].ToString();
-                break;
-
-                // foreach (PropertyData property in obj.Properties)
-                // {
-                //   Console.Out.WriteLine(String.Format("{0}:{1}", property.Name, property.Value));
-                //  }
-                // 
-            }
-
-        }
-    }
 }

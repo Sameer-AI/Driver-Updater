@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Driver_Updater.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
@@ -21,87 +22,73 @@ namespace Driver_Updater
     /// </summary>
     public partial class Processor : Page
     {
+        DriverUpdaterDataStoreEntities db = new DriverUpdaterDataStoreEntities();
         public Processor()
         {
             InitializeComponent();
-            getCPUName();
-            getMotherboardInfo();
-            getBIOSInfo();
+            setData();
+
         }
 
-        private void getCPUName()
+        private void  setData()
         {
-            ManagementObjectSearcher objSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_Processor");
-            ManagementObjectCollection objCollection = objSearcher.Get();
+            var docs = from d in db.PROCESSOR_AND_MOTHERBOARD
+                       select new
+                       {
+                           CPU_NAME = d.CPU_NAME,
+                           NO_LOGICAL_PROCESSORS = d.NO_LOGICAL_PROCESSORS,
+                           MANUFACTURER = d.MANUFACTURER,
+                           CURRENT_CLOCK_SPEED = d.CURRENT_CLOCK_SPEED,
+                           MAX_CLOCK_SPEED = d.MAX_CLOCK_SPEED,
+                           VOLTAGE = d.VOLTAGE,
+                           EXTERNAL_CLOCK = d.EXTERNAL_CLOCK,
+                           SERIAL_NUMBER = d.SERIAL_NUMBER,
+                           CPU_ID = d.CPU_ID,
+                           SOCKET_DESIGNATION = d.SOCKET_DESIGNATION,
+                           L2_CACHE = d.L2_CACHE,
+                           L3_CACHE = d.L3_CACHE,
+                           MODEL = d.MODEL,
+                           PMANUFACTURER = d.PMANUFACTURER,
+                           PSERIAL_NUMBER = d.PSERIAL_NUMBER,
+                           BIOS_NAME = d.BIOS_NAME,
+                           BIOS_VENDOR = d.BIOS_VENDOR,
+                           SMBIOS_VERSION = d.SMBIOS_VERSION,
+                           PCI_SUPPORT = d.PCI_SUPPORT,
+                           BIOS_UPGRADABLE = d.BIOS_UPGRADABLE,
+                           BIOS_SHADOWING = d.BIOS_SHADOWING,
+                           BOOT_FROM_DISK = d.BOOT_FROM_DISK,
+                           SELECTABLE_SUPPORTED = d.SELECTABLE_SUPPORTED,
+                           EDD_SUPPORT = d.EDD_SUPPORT,
+                           ACPI_SUPPORT = d.ACPI_SUPPORT,
+                           USB_LAGACY_SUPPORT = d.USB_LAGACY_SUPPORT
+                       };           
             
-            foreach(ManagementObject obj in objCollection)
+            foreach(var item in docs)
             {
                 // Processor Information
-                CPUName.Text = obj["Name"].ToString();
-                NumberOfCores.Text = obj["NumberOfCores"].ToString();
-                Manufacturer.Text = obj["Manufacturer"].ToString();
-                CurrentClockSpeed.Text = obj["CurrentClockSpeed"].ToString();
-                MaxClockSpeed.Text = obj["MaxClockSpeed"].ToString();
-                CurrentVoltage.Text = obj["CurrentVoltage"].ToString();
-                ExternalClock.Text = obj["ExtClock"].ToString();
-                SerialNumber.Text = obj["SerialNumber"].ToString();
-                CPUID.Text = obj["DeviceID"].ToString();
-                SocketDesignation.Text = obj["SocketDesignation"].ToString();
-                L2.Text = obj["L2CacheSize"].ToString();
-                L3.Text = obj["L3CacheSize"].ToString();
-
-            }
-
-        }
-        private void getMotherboardInfo()
-        {
-
-                ManagementObjectSearcher objSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_BaseBoard");
-                ManagementObjectCollection objCollection = objSearcher.Get();
-
-                foreach (ManagementObject obj in objCollection)
-                {
-
-
-                    MotherBoardModel.Text = obj["Product"].ToString();
-                    MotherBoardManufacturer.Text = obj["Manufacturer"].ToString();
-                    MotherBoardSN.Text = obj["SerialNumber"].ToString();
-                    
-                    
-                    
-
-                    // foreach (PropertyData property in obj.Properties)
-                    // {
-                    //   Console.Out.WriteLine(String.Format("{0}:{1}", property.Name, property.Value));
-                    //  }
-                    // 
+                CPUName.Text = item.CPU_NAME;
+                NumberOfCores.Text = item.NO_LOGICAL_PROCESSORS;
+                Manufacturer.Text = item.PMANUFACTURER;
+                CurrentClockSpeed.Text = item.CURRENT_CLOCK_SPEED.ToString();
+                MaxClockSpeed.Text = item.MAX_CLOCK_SPEED.ToString();
+                CurrentVoltage.Text = item.VOLTAGE.ToString();
+                ExternalClock.Text = item.EXTERNAL_CLOCK.ToString();
+                SerialNumber.Text = item.PSERIAL_NUMBER;
+                CPUID.Text = item.CPU_ID;
+                SocketDesignation.Text = item.SOCKET_DESIGNATION;
+                L2.Text = item.L2_CACHE.ToString();
+                L3.Text = item.L3_CACHE.ToString();
+                MotherBoardModel.Text = item.MODEL;
+                MotherBoardManufacturer.Text = item.MANUFACTURER;
+                MotherBoardSN.Text = item.SERIAL_NUMBER;
+                BIOSName.Text = item.BIOS_NAME;
+                BIOSVendor.Text = item.BIOS_VENDOR;
+                SMBIOSVersion.Text = item.SMBIOS_VERSION;
 
 
             }
 
         }
 
-        private void getBIOSInfo()
-        {
-            ManagementObjectSearcher objSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_BIOS");
-            ManagementObjectCollection objCollection = objSearcher.Get();
-
-            foreach(ManagementObject obj in objCollection)
-            {
-                BIOSName.Text = obj["Name"].ToString();
-                BIOSVendor.Text = obj["Manufacturer"].ToString();
-                SMBIOSVersion.Text = obj["SMBIOSBIOSVersion"].ToString();
-
-                
-                
-
-                
-
-            }
-
-
-
-
-        }
     }
 }

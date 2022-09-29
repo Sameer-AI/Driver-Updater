@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Driver_Updater.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management;
@@ -20,149 +21,40 @@ namespace Driver_Updater
     /// Interaction logic for Operating_System.xaml
     /// </summary>
     public partial class OperatingSystem : Page
-    {
+    {   
+        DriverUpdaterDataStoreEntities db =new DriverUpdaterDataStoreEntities();
+
         public OperatingSystem()
         {
             InitializeComponent();
-            getCompName();
-            getUserName();
-            getOwnerName();
-            getOSName();
-            getOSVersion();
-            getProductID();
-            getSystemArchitecture();
-
+            setData();
         }
-
-        private void getCompName()
+            public void setData()
         {
-
-            ManagementObjectSearcher objSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_ComputerSystem");
-
-            ManagementObjectCollection objCollection = objSearcher.Get();
-
-            foreach (ManagementObject obj in objCollection)
+            var docs = from d in db.OS
+                       select new
+                       {
+                           COMPUTER_NAME=d.COMPUTER_NAME,
+                           USER_NAME=d.USER_NAME,
+                           ORGANISATION= d.ORAGNISATION,
+                           OS_NAME=d.OS_NAME,
+                           OS_VERSION=d.OS_VERSION,
+                           PRODUCT_ID=d.PRODUCT_ID,
+                           Architecture=d.ARCHITECTURE
+                       };
+            foreach (var item in docs)
             {
-
-
-                CompName.Text = obj["Name"].ToString();
-                
-
+                CompName.Text = item.COMPUTER_NAME;
+                UserName.Text = item.USER_NAME;
+                Organization.Text = item.ORGANISATION;
+                OSName.Text = item.OS_NAME;
+                OSVersion.Text = item.OS_VERSION;
+                ProductID.Text = item.PRODUCT_ID;
+                Architecture.Text = item.Architecture.ToString();
 
             }
-
-        }
-        private void getUserName()
-        {
-
-            ManagementObjectSearcher objSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_ComputerSystem");
-
-            ManagementObjectCollection objCollection = objSearcher.Get();
-
-            foreach (ManagementObject obj in objCollection)
-            {
-
-
-                UserName.Text = obj["UserName"].ToString();
-
-
-
-            }
-
-        }
-        private void getOwnerName()
-        {
-
-            ManagementObjectSearcher objSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_ComputerSystem");
-
-            ManagementObjectCollection objCollection = objSearcher.Get();
-
-            foreach (ManagementObject obj in objCollection)
-            {
-
-
-                Organization.Text = obj["PrimaryOwnerName"].ToString();
-
-
-
-            }
-
+        
         }
 
-        private void getOSName()
-        {
-
-            ManagementObjectSearcher objSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
-
-            ManagementObjectCollection objCollection = objSearcher.Get();
-
-            foreach (ManagementObject obj in objCollection)
-            {
-
-
-                OSName.Text = obj["Caption"].ToString();
-
-
-
-            }
-
-        }
-
-        private void getOSVersion()
-        {
-
-            ManagementObjectSearcher objSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
-
-            ManagementObjectCollection objCollection = objSearcher.Get();
-
-            foreach (ManagementObject obj in objCollection)
-            {
-
-
-                OSVersion.Text = obj["Version"].ToString();
-
-
-
-            }
-
-        }
-
-        private void getProductID()
-        {
-
-            ManagementObjectSearcher objSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
-
-            ManagementObjectCollection objCollection = objSearcher.Get();
-
-            foreach (ManagementObject obj in objCollection)
-            {
-
-
-                ProductID.Text = obj["SerialNumber"].ToString();
-
-
-
-            }
-
-        }
-
-        private void getSystemArchitecture()
-        {
-
-            ManagementObjectSearcher objSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_OperatingSystem");
-
-            ManagementObjectCollection objCollection = objSearcher.Get();
-
-            foreach (ManagementObject obj in objCollection)
-            {
-
-
-                Architecture.Text = obj["OSArchitecture"].ToString();
-
-
-
-            }
-
-        }
     }
 }

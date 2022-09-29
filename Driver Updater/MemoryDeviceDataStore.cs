@@ -33,30 +33,6 @@ namespace Driver_Updater
         string _memoryType;
         string _formFactor;
 
-        /*public MemoryDeviceDataStore(
-        string _memoryBankT,
-        string _descriptionT,
-        string _deviceLocatorT,
-        string _capacityT,
-        string _speedT,
-        string _manufacturerT,
-        string _dataWidthT,
-        string _memoryTypeT,
-        string _formFactorT)
-        {
-            MemoryBank= _memoryBankT;
-            Description=_descriptionT;
-            DeviceLocator= _deviceLocatorT;
-            Capacity= _capacityT;
-            Speed= _speedT;
-            Manufacturer= _manufacturerT;
-            DataWidth= _dataWidthT;
-            MemoryType= _memoryTypeT;
-            FormFactor= _formFactorT;
-            Description= _descriptionT;
-        
-        }
-        */
 
         public string PhysicalMemoryLabel
         {

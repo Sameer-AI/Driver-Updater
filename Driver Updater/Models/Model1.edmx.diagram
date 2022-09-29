@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="73e583711808445f81333d944667d0f6" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="DriverUpdaterDataStoreModel.DISPLAY" Width="2" PointX="0.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverUpdaterDataStoreModel.DRIVER_DETAILS" Width="4.25" PointX="11" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverUpdaterDataStoreModel.DRIVE" Width="1.75" PointX="5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverUpdaterDataStoreModel.InfoBlockOverAll" Width="2" PointX="0.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverUpdaterDataStoreModel.LICENSE" Width="2.25" PointX="1.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverUpdaterDataStoreModel.MEMORY_DEVICE" Width="2.25" PointX="3.375" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverUpdaterDataStoreModel.OS" Width="1.875" PointX="7.625" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverUpdaterDataStoreModel.PROCESSOR_AND_MOTHERBOARD" Width="3.25" PointX="7.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DriverUpdaterDataStoreModel.TIME_STAMPS" Width="2" PointX="9.875" PointY="1" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

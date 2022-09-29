@@ -152,21 +152,19 @@ namespace Driver_Updater
             int i = 0;
             foreach(var driver in Drivers)
             {
-                Thread.Sleep(100);
+                Thread.Sleep(80);
                 scanWorker.ReportProgress(i,driver.FriendlyName);
                 i++;
             }
 
-            scanWorker.ReportProgress(100);
+            scanWorker.ReportProgress(100,"All Drivers Scanned !!!");
 
         }
 
         private void scanWorker_RunworkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             //here we will write the code for storing the collected information in the database
-
-
-
+           
         }
     }
 }

@@ -1,0 +1,520 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DriverUpdaterDataStoreModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DISPLAY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="char" MaxLength="50" />
+          <Property Name="VIDEO_PROCESSOR" Type="char" MaxLength="50" />
+          <Property Name="MANUFACTURER" Type="char" MaxLength="50" />
+          <Property Name="VIDEO_ARCHITECTURE" Type="int" />
+          <Property Name="DAC_TYPE" Type="char" MaxLength="50" />
+          <Property Name="MEMORY_SIZE" Type="float" />
+          <Property Name="MOUSE" Type="int" />
+          <Property Name="VIDEO_MODE" Type="char" MaxLength="50" />
+          <Property Name="CURRENT_REFRESH_RATE" Type="int" />
+          <Property Name="DRIVER_VIRSION" Type="char" MaxLength="50" />
+          <Property Name="DRIVER_DATE" Type="char" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DRIVER_DETAILS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="FRIENDLY_NAME" Type="char" MaxLength="50" />
+          <Property Name="CATEGORY" Type="char" MaxLength="50" />
+          <Property Name="CURRENT_DATE" Type="char" MaxLength="50" />
+          <Property Name="DRIVER_VIRSION" Type="char" MaxLength="50" />
+          <Property Name="MANUFACTURER" Type="char" MaxLength="50" />
+          <Property Name="DEVICE_ID" Type="char" MaxLength="50" />
+          <Property Name="HARDWARE_ID" Type="char" MaxLength="50" />
+          <Property Name="INF_NAME" Type="char" MaxLength="50" />
+          <Property Name="FILE_CONTENT" Type="varbinary" MaxLength="1" />
+          <Property Name="DRIVER_DATE" Type="datetime" />
+          <Property Name="CREATED_AT" Type="datetime" />
+          <Property Name="UPDATED_AT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DRIVES">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="char" MaxLength="50" />
+          <Property Name="CAPACITY" Type="float" />
+          <Property Name="INTERFACE_TYPE" Type="char" MaxLength="50" />
+          <Property Name="PARTITIONS" Type="int" />
+          <Property Name="TOTAL_CYLINDERS" Type="int" />
+          <Property Name="TOTAL_HEADS" Type="int" />
+          <Property Name="TOTAL_SECTORS" Type="int" />
+          <Property Name="TOTAL_TRACKS" Type="int" />
+          <Property Name="TRACKS_PER_CYLINDERS" Type="int" />
+          <Property Name="BYTES_PER_SECTOR" Type="int" />
+          <Property Name="SECTORS_PER_TRACK" Type="int" />
+        </EntityType>
+        <EntityType Name="InfoBlockOverAll">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="OPERATING_SYSTEM" Type="char" MaxLength="50" />
+          <Property Name="PROCESSOR" Type="char" MaxLength="50" />
+          <Property Name="GRAPHICS_CARD" Type="char" MaxLength="50" />
+          <Property Name="MEMORY" Type="float" />
+          <Property Name="MONITOR" Type="char" MaxLength="50" />
+          <Property Name="DISK_STORAGE" Type="float" />
+          <Property Name="AUDIO" Type="char" MaxLength="50" />
+          <Property Name="MOTHERBOARD" Type="char" MaxLength="50" />
+          <Property Name="MOUSE" Type="char" MaxLength="50" />
+          <Property Name="KEYBOARD" Type="char" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LICENSE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="LICENSE_KEY" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="CUSTOMER_EMAIL" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="VALID_TILL" Type="datetime" />
+          <Property Name="ACTIVATED_MACHINE" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="CREATED_AT" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MEMORY_DEVICE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="TOTAL_MEMORY" Type="float" />
+          <Property Name="MEMORY_BANK" Type="char" MaxLength="50" />
+          <Property Name="DESCRIPTION" Type="char" MaxLength="50" />
+          <Property Name="DEVICE_LOCATOR" Type="char" MaxLength="50" />
+          <Property Name="CAPACITY" Type="float" />
+          <Property Name="SPEED_LABEL" Type="int" />
+          <Property Name="MANUFACTURER" Type="char" MaxLength="50" />
+          <Property Name="DATA_WIDTH" Type="int" />
+          <Property Name="MEMORY_TYPE" Type="int" />
+          <Property Name="FORM_FACTOR" Type="int" />
+        </EntityType>
+        <EntityType Name="OS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="COMPUTER_NAME" Type="char" MaxLength="50" />
+          <Property Name="USER_NAME" Type="char" MaxLength="50" />
+          <Property Name="ORAGNISATION" Type="char" MaxLength="50" />
+          <Property Name="OS_NAME" Type="char" MaxLength="50" />
+          <Property Name="OS_VERSION" Type="char" MaxLength="50" />
+          <Property Name="PRODUCT_ID" Type="char" MaxLength="50" />
+          <Property Name="ARCHITECTURE" Type="int" />
+        </EntityType>
+        <EntityType Name="PROCESSOR_AND_MOTHERBOARD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="CPU_NAME" Type="char" MaxLength="50" />
+          <Property Name="NO_LOGICAL_PROCESSORS" Type="char" MaxLength="50" />
+          <Property Name="MANUFACTURER" Type="char" MaxLength="50" />
+          <Property Name="CURRENT_CLOCK_SPEED" Type="int" />
+          <Property Name="MAX_CLOCK_SPEED" Type="int" />
+          <Property Name="VOLTAGE" Type="float" />
+          <Property Name="EXTERNAL_CLOCK" Type="int" />
+          <Property Name="SERIAL_NUMBER" Type="char" MaxLength="50" />
+          <Property Name="CPU_ID" Type="char" MaxLength="50" />
+          <Property Name="SOCKET_DESIGNATION" Type="char" MaxLength="50" />
+          <Property Name="L2_CACHE" Type="int" />
+          <Property Name="L3_CACHE" Type="int" />
+          <Property Name="MODEL" Type="char" MaxLength="50" />
+          <Property Name="PMANUFACTURER" Type="char" MaxLength="50" />
+          <Property Name="PSERIAL_NUMBER" Type="char" MaxLength="50" />
+          <Property Name="BIOS_NAME" Type="char" MaxLength="50" />
+          <Property Name="BIOS_VENDOR" Type="char" MaxLength="50" />
+          <Property Name="SMBIOS VERSION" Type="char" MaxLength="50" />
+          <Property Name="PCI_SUPPORT" Type="bit" />
+          <Property Name="BIOS_UPGRADABLE" Type="bit" />
+          <Property Name="BIOS_SHADOWING" Type="bit" />
+          <Property Name="BOOT_FROM_DISK" Type="bit" />
+          <Property Name="SELECTABLE_SUPPORTED" Type="bit" />
+          <Property Name="EDD_SUPPORT" Type="bit" />
+          <Property Name="ACPI_SUPPORT" Type="bit" />
+          <Property Name="USB_LAGACY_SUPPORT" Type="bit" />
+        </EntityType>
+        <EntityType Name="TIME_STAMPS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="LAST_SCAN" Type="datetime" />
+          <Property Name="PRODUCT_REGISTRATION" Type="datetime" />
+          <Property Name="LAST_BACKUP_TIME" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="DriverUpdaterDataStoreModelStoreContainer">
+          <EntitySet Name="DISPLAY" EntityType="Self.DISPLAY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DRIVER_DETAILS" EntityType="Self.DRIVER_DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DRIVES" EntityType="Self.DRIVES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoBlockOverAll" EntityType="Self.InfoBlockOverAll" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LICENSE" EntityType="Self.LICENSE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MEMORY_DEVICE" EntityType="Self.MEMORY_DEVICE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OS" EntityType="Self.OS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROCESSOR_AND_MOTHERBOARD" EntityType="Self.PROCESSOR_AND_MOTHERBOARD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIME_STAMPS" EntityType="Self.TIME_STAMPS" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DriverUpdaterDataStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DISPLAY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="VIDEO_PROCESSOR" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="MANUFACTURER" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="VIDEO_ARCHITECTURE" Type="Int32" />
+          <Property Name="DAC_TYPE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="MEMORY_SIZE" Type="Double" />
+          <Property Name="MOUSE" Type="Int32" />
+          <Property Name="VIDEO_MODE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="CURRENT_REFRESH_RATE" Type="Int32" />
+          <Property Name="DRIVER_VIRSION" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="DRIVER_DATE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DRIVER_DETAILS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="FRIENDLY_NAME" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="CATEGORY" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="CURRENT_DATE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="DRIVER_VIRSION" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="MANUFACTURER" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="DEVICE_ID" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="HARDWARE_ID" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="INF_NAME" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FILE_CONTENT" Type="Binary" MaxLength="1" FixedLength="false" />
+          <Property Name="DRIVER_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
+          <Property Name="UPDATED_AT" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DRIVE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="CAPACITY" Type="Double" />
+          <Property Name="INTERFACE_TYPE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="PARTITIONS" Type="Int32" />
+          <Property Name="TOTAL_CYLINDERS" Type="Int32" />
+          <Property Name="TOTAL_HEADS" Type="Int32" />
+          <Property Name="TOTAL_SECTORS" Type="Int32" />
+          <Property Name="TOTAL_TRACKS" Type="Int32" />
+          <Property Name="TRACKS_PER_CYLINDERS" Type="Int32" />
+          <Property Name="BYTES_PER_SECTOR" Type="Int32" />
+          <Property Name="SECTORS_PER_TRACK" Type="Int32" />
+        </EntityType>
+        <EntityType Name="InfoBlockOverAll">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="OPERATING_SYSTEM" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="PROCESSOR" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="GRAPHICS_CARD" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="MEMORY" Type="Double" />
+          <Property Name="MONITOR" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="DISK_STORAGE" Type="Double" />
+          <Property Name="AUDIO" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="MOTHERBOARD" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="MOUSE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="KEYBOARD" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LICENSE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="LICENSE_KEY" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CUSTOMER_EMAIL" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VALID_TILL" Type="DateTime" Precision="3" />
+          <Property Name="ACTIVATED_MACHINE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CREATED_AT" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MEMORY_DEVICE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TOTAL_MEMORY" Type="Double" />
+          <Property Name="MEMORY_BANK" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="DEVICE_LOCATOR" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="CAPACITY" Type="Double" />
+          <Property Name="SPEED_LABEL" Type="Int32" />
+          <Property Name="MANUFACTURER" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="DATA_WIDTH" Type="Int32" />
+          <Property Name="MEMORY_TYPE" Type="Int32" />
+          <Property Name="FORM_FACTOR" Type="Int32" />
+        </EntityType>
+        <EntityType Name="OS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="COMPUTER_NAME" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="USER_NAME" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="ORAGNISATION" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="OS_NAME" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="OS_VERSION" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="PRODUCT_ID" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="ARCHITECTURE" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PROCESSOR_AND_MOTHERBOARD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CPU_NAME" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="NO_LOGICAL_PROCESSORS" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="MANUFACTURER" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="CURRENT_CLOCK_SPEED" Type="Int32" />
+          <Property Name="MAX_CLOCK_SPEED" Type="Int32" />
+          <Property Name="VOLTAGE" Type="Double" />
+          <Property Name="EXTERNAL_CLOCK" Type="Int32" />
+          <Property Name="SERIAL_NUMBER" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="CPU_ID" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="SOCKET_DESIGNATION" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="L2_CACHE" Type="Int32" />
+          <Property Name="L3_CACHE" Type="Int32" />
+          <Property Name="MODEL" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="PMANUFACTURER" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="PSERIAL_NUMBER" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="BIOS_NAME" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="BIOS_VENDOR" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="SMBIOS_VERSION" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="PCI_SUPPORT" Type="Boolean" />
+          <Property Name="BIOS_UPGRADABLE" Type="Boolean" />
+          <Property Name="BIOS_SHADOWING" Type="Boolean" />
+          <Property Name="BOOT_FROM_DISK" Type="Boolean" />
+          <Property Name="SELECTABLE_SUPPORTED" Type="Boolean" />
+          <Property Name="EDD_SUPPORT" Type="Boolean" />
+          <Property Name="ACPI_SUPPORT" Type="Boolean" />
+          <Property Name="USB_LAGACY_SUPPORT" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TIME_STAMPS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="LAST_SCAN" Type="DateTime" Precision="3" />
+          <Property Name="PRODUCT_REGISTRATION" Type="DateTime" Precision="3" />
+          <Property Name="LAST_BACKUP_TIME" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="DriverUpdaterDataStoreEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DISPLAYs" EntityType="Self.DISPLAY" />
+          <EntitySet Name="DRIVER_DETAILS" EntityType="Self.DRIVER_DETAILS" />
+          <EntitySet Name="DRIVES" EntityType="Self.DRIVE" />
+          <EntitySet Name="InfoBlockOverAlls" EntityType="Self.InfoBlockOverAll" />
+          <EntitySet Name="LICENSEs" EntityType="Self.LICENSE" />
+          <EntitySet Name="MEMORY_DEVICE" EntityType="Self.MEMORY_DEVICE" />
+          <EntitySet Name="OS" EntityType="DriverUpdaterDataStoreModel.OS" />
+          <EntitySet Name="PROCESSOR_AND_MOTHERBOARD" EntityType="Self.PROCESSOR_AND_MOTHERBOARD" />
+          <EntitySet Name="TIME_STAMPS" EntityType="Self.TIME_STAMPS" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DriverUpdaterDataStoreModelStoreContainer" CdmEntityContainer="DriverUpdaterDataStoreEntities">
+          <EntitySetMapping Name="DISPLAYs">
+            <EntityTypeMapping TypeName="DriverUpdaterDataStoreModel.DISPLAY">
+              <MappingFragment StoreEntitySet="DISPLAY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="VIDEO_PROCESSOR" ColumnName="VIDEO_PROCESSOR" />
+                <ScalarProperty Name="MANUFACTURER" ColumnName="MANUFACTURER" />
+                <ScalarProperty Name="VIDEO_ARCHITECTURE" ColumnName="VIDEO_ARCHITECTURE" />
+                <ScalarProperty Name="DAC_TYPE" ColumnName="DAC_TYPE" />
+                <ScalarProperty Name="MEMORY_SIZE" ColumnName="MEMORY_SIZE" />
+                <ScalarProperty Name="MOUSE" ColumnName="MOUSE" />
+                <ScalarProperty Name="VIDEO_MODE" ColumnName="VIDEO_MODE" />
+                <ScalarProperty Name="CURRENT_REFRESH_RATE" ColumnName="CURRENT_REFRESH_RATE" />
+                <ScalarProperty Name="DRIVER_VIRSION" ColumnName="DRIVER_VIRSION" />
+                <ScalarProperty Name="DRIVER_DATE" ColumnName="DRIVER_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DRIVER_DETAILS">
+            <EntityTypeMapping TypeName="DriverUpdaterDataStoreModel.DRIVER_DETAILS">
+              <MappingFragment StoreEntitySet="DRIVER_DETAILS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="FRIENDLY_NAME" ColumnName="FRIENDLY_NAME" />
+                <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+                <ScalarProperty Name="CURRENT_DATE" ColumnName="CURRENT_DATE" />
+                <ScalarProperty Name="DRIVER_VIRSION" ColumnName="DRIVER_VIRSION" />
+                <ScalarProperty Name="MANUFACTURER" ColumnName="MANUFACTURER" />
+                <ScalarProperty Name="DEVICE_ID" ColumnName="DEVICE_ID" />
+                <ScalarProperty Name="HARDWARE_ID" ColumnName="HARDWARE_ID" />
+                <ScalarProperty Name="INF_NAME" ColumnName="INF_NAME" />
+                <ScalarProperty Name="FILE_CONTENT" ColumnName="FILE_CONTENT" />
+                <ScalarProperty Name="DRIVER_DATE" ColumnName="DRIVER_DATE" />
+                <ScalarProperty Name="CREATED_AT" ColumnName="CREATED_AT" />
+                <ScalarProperty Name="UPDATED_AT" ColumnName="UPDATED_AT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DRIVES">
+            <EntityTypeMapping TypeName="DriverUpdaterDataStoreModel.DRIVE">
+              <MappingFragment StoreEntitySet="DRIVES">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="CAPACITY" ColumnName="CAPACITY" />
+                <ScalarProperty Name="INTERFACE_TYPE" ColumnName="INTERFACE_TYPE" />
+                <ScalarProperty Name="PARTITIONS" ColumnName="PARTITIONS" />
+                <ScalarProperty Name="TOTAL_CYLINDERS" ColumnName="TOTAL_CYLINDERS" />
+                <ScalarProperty Name="TOTAL_HEADS" ColumnName="TOTAL_HEADS" />
+                <ScalarProperty Name="TOTAL_SECTORS" ColumnName="TOTAL_SECTORS" />
+                <ScalarProperty Name="TOTAL_TRACKS" ColumnName="TOTAL_TRACKS" />
+                <ScalarProperty Name="TRACKS_PER_CYLINDERS" ColumnName="TRACKS_PER_CYLINDERS" />
+                <ScalarProperty Name="BYTES_PER_SECTOR" ColumnName="BYTES_PER_SECTOR" />
+                <ScalarProperty Name="SECTORS_PER_TRACK" ColumnName="SECTORS_PER_TRACK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoBlockOverAlls">
+            <EntityTypeMapping TypeName="DriverUpdaterDataStoreModel.InfoBlockOverAll">
+              <MappingFragment StoreEntitySet="InfoBlockOverAll">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OPERATING_SYSTEM" ColumnName="OPERATING_SYSTEM" />
+                <ScalarProperty Name="PROCESSOR" ColumnName="PROCESSOR" />
+                <ScalarProperty Name="GRAPHICS_CARD" ColumnName="GRAPHICS_CARD" />
+                <ScalarProperty Name="MEMORY" ColumnName="MEMORY" />
+                <ScalarProperty Name="MONITOR" ColumnName="MONITOR" />
+                <ScalarProperty Name="DISK_STORAGE" ColumnName="DISK_STORAGE" />
+                <ScalarProperty Name="AUDIO" ColumnName="AUDIO" />
+                <ScalarProperty Name="MOTHERBOARD" ColumnName="MOTHERBOARD" />
+                <ScalarProperty Name="MOUSE" ColumnName="MOUSE" />
+                <ScalarProperty Name="KEYBOARD" ColumnName="KEYBOARD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LICENSEs">
+            <EntityTypeMapping TypeName="DriverUpdaterDataStoreModel.LICENSE">
+              <MappingFragment StoreEntitySet="LICENSE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LICENSE_KEY" ColumnName="LICENSE_KEY" />
+                <ScalarProperty Name="CUSTOMER_EMAIL" ColumnName="CUSTOMER_EMAIL" />
+                <ScalarProperty Name="VALID_TILL" ColumnName="VALID_TILL" />
+                <ScalarProperty Name="ACTIVATED_MACHINE" ColumnName="ACTIVATED_MACHINE" />
+                <ScalarProperty Name="CREATED_AT" ColumnName="CREATED_AT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MEMORY_DEVICE">
+            <EntityTypeMapping TypeName="DriverUpdaterDataStoreModel.MEMORY_DEVICE">
+              <MappingFragment StoreEntitySet="MEMORY_DEVICE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TOTAL_MEMORY" ColumnName="TOTAL_MEMORY" />
+                <ScalarProperty Name="MEMORY_BANK" ColumnName="MEMORY_BANK" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="DEVICE_LOCATOR" ColumnName="DEVICE_LOCATOR" />
+                <ScalarProperty Name="CAPACITY" ColumnName="CAPACITY" />
+                <ScalarProperty Name="SPEED_LABEL" ColumnName="SPEED_LABEL" />
+                <ScalarProperty Name="MANUFACTURER" ColumnName="MANUFACTURER" />
+                <ScalarProperty Name="DATA_WIDTH" ColumnName="DATA_WIDTH" />
+                <ScalarProperty Name="MEMORY_TYPE" ColumnName="MEMORY_TYPE" />
+                <ScalarProperty Name="FORM_FACTOR" ColumnName="FORM_FACTOR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OS">
+            <EntityTypeMapping TypeName="DriverUpdaterDataStoreModel.OS">
+              <MappingFragment StoreEntitySet="OS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="COMPUTER_NAME" ColumnName="COMPUTER_NAME" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="ORAGNISATION" ColumnName="ORAGNISATION" />
+                <ScalarProperty Name="OS_NAME" ColumnName="OS_NAME" />
+                <ScalarProperty Name="OS_VERSION" ColumnName="OS_VERSION" />
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+                <ScalarProperty Name="ARCHITECTURE" ColumnName="ARCHITECTURE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROCESSOR_AND_MOTHERBOARD">
+            <EntityTypeMapping TypeName="DriverUpdaterDataStoreModel.PROCESSOR_AND_MOTHERBOARD">
+              <MappingFragment StoreEntitySet="PROCESSOR_AND_MOTHERBOARD">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CPU_NAME" ColumnName="CPU_NAME" />
+                <ScalarProperty Name="NO_LOGICAL_PROCESSORS" ColumnName="NO_LOGICAL_PROCESSORS" />
+                <ScalarProperty Name="MANUFACTURER" ColumnName="MANUFACTURER" />
+                <ScalarProperty Name="CURRENT_CLOCK_SPEED" ColumnName="CURRENT_CLOCK_SPEED" />
+                <ScalarProperty Name="MAX_CLOCK_SPEED" ColumnName="MAX_CLOCK_SPEED" />
+                <ScalarProperty Name="VOLTAGE" ColumnName="VOLTAGE" />
+                <ScalarProperty Name="EXTERNAL_CLOCK" ColumnName="EXTERNAL_CLOCK" />
+                <ScalarProperty Name="SERIAL_NUMBER" ColumnName="SERIAL_NUMBER" />
+                <ScalarProperty Name="CPU_ID" ColumnName="CPU_ID" />
+                <ScalarProperty Name="SOCKET_DESIGNATION" ColumnName="SOCKET_DESIGNATION" />
+                <ScalarProperty Name="L2_CACHE" ColumnName="L2_CACHE" />
+                <ScalarProperty Name="L3_CACHE" ColumnName="L3_CACHE" />
+                <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+                <ScalarProperty Name="PMANUFACTURER" ColumnName="PMANUFACTURER" />
+                <ScalarProperty Name="PSERIAL_NUMBER" ColumnName="PSERIAL_NUMBER" />
+                <ScalarProperty Name="BIOS_NAME" ColumnName="BIOS_NAME" />
+                <ScalarProperty Name="BIOS_VENDOR" ColumnName="BIOS_VENDOR" />
+                <ScalarProperty Name="SMBIOS_VERSION" ColumnName="SMBIOS VERSION" />
+                <ScalarProperty Name="PCI_SUPPORT" ColumnName="PCI_SUPPORT" />
+                <ScalarProperty Name="BIOS_UPGRADABLE" ColumnName="BIOS_UPGRADABLE" />
+                <ScalarProperty Name="BIOS_SHADOWING" ColumnName="BIOS_SHADOWING" />
+                <ScalarProperty Name="BOOT_FROM_DISK" ColumnName="BOOT_FROM_DISK" />
+                <ScalarProperty Name="SELECTABLE_SUPPORTED" ColumnName="SELECTABLE_SUPPORTED" />
+                <ScalarProperty Name="EDD_SUPPORT" ColumnName="EDD_SUPPORT" />
+                <ScalarProperty Name="ACPI_SUPPORT" ColumnName="ACPI_SUPPORT" />
+                <ScalarProperty Name="USB_LAGACY_SUPPORT" ColumnName="USB_LAGACY_SUPPORT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIME_STAMPS">
+            <EntityTypeMapping TypeName="DriverUpdaterDataStoreModel.TIME_STAMPS">
+              <MappingFragment StoreEntitySet="TIME_STAMPS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LAST_SCAN" ColumnName="LAST_SCAN" />
+                <ScalarProperty Name="PRODUCT_REGISTRATION" ColumnName="PRODUCT_REGISTRATION" />
+                <ScalarProperty Name="LAST_BACKUP_TIME" ColumnName="LAST_BACKUP_TIME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
