@@ -108,12 +108,12 @@ namespace Driver_Updater
         public string Name { get; set; }
         public string VideoProcessor { get; set; }
         public string Manufacturer { get; set; }
-        public string VideoArchitecture { get; set; }
+        public int VideoArchitecture { get; set; }
         public string DACType { get; set; }
-        public string MemorySize { get; set; }
-        public string MemoryType { get; set; }
+        public float MemorySize { get; set; }
+        public int MemoryType { get; set; }
         public string VideoMode { get; set; }
-        public string CurrentRefreshRate { get; set; }
+        public int CurrentRefreshRate { get; set; }
         public string DriverVersion { get; set; }
         public string DriverDate { get; set; }
        

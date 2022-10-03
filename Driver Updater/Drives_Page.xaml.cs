@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Management;
+using Driver_Updater.Models;
 
 namespace Driver_Updater
 {
@@ -22,36 +23,17 @@ namespace Driver_Updater
     public partial class Drives_Page : Page
     {
         public HardDiskDataStrore HardDiskData = new HardDiskDataStrore();
+        DriverUpdaterDataStoreEntities db = new DriverUpdaterDataStoreEntities();
 
         public Drives_Page()
         {
 
             InitializeComponent();
-            getData();
+            
             setData();
         }
         
-        public void getData()
-        {
-            ManagementObjectSearcher objSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
-            ManagementObjectCollection objCollections = objSearcher.Get();
-            foreach (ManagementObject obj in objCollections)
-            {
-
-                HardDiskData.Name = obj["Caption"].ToString();
-                HardDiskData.Capacity = obj["Size"].ToString();
-                HardDiskData.InterfacteType = obj["InterfaceType"].ToString();
-                HardDiskData.Partition = obj["Partitions"].ToString();
-                HardDiskData.TotalCylinder = obj["TotalCylinders"].ToString();
-                HardDiskData.TotalHeads = obj["TotalHeads"].ToString();
-                HardDiskData.TotalSectors = obj["TotalSectors"].ToString();
-                HardDiskData.TotalTracks = obj["TotalTracks"].ToString();
-                HardDiskData.BytesPerSector = obj["BytesPerSector"].ToString();
-                HardDiskData.SectorsPerTrack = obj["SectorsPerTrack"].ToString();
-                HardDiskData.TracksPerCylinders = obj["TracksPerCylinder"].ToString();
-                
-            }
-        }
+       
     
         void setData()
         {
@@ -68,18 +50,38 @@ namespace Driver_Updater
             this.label10.Text = HardDiskData.BytesPerSectorLabel;
             this.label11.Text = HardDiskData.SectorsPerTrackLabel;
 
+            var docs = from d in db.DRIVES
+                       select new
+                       {
+                           Name=d.NAME,
+                           Capacity=d.CAPACITY,
+                           InterfaceType=d.INTERFACE_TYPE,
+                           Partition=d.PARTITIONS,
+                           TotalCylinder=d.TOTAL_CYLINDERS,
+                           TotalHeads=d.TOTAL_HEADS,    
+                           TotalSectors=d.TOTAL_SECTORS,
+                           TotalTracks=d.TOTAL_TRACKS,
+                           TracksPerCylinders=d.TRACKS_PER_CYLINDERS,
+                           BytesPerSector=d.BYTES_PER_SECTOR,
+                           SectorsPerTracks=d.SECTORS_PER_TRACK
+                       };
             
-            this.value1.Text = HardDiskData.Name;
-            this.value2.Text = HardDiskData.Capacity;
-            this.value3.Text = HardDiskData.InterfacteType;
-            this.value4.Text = HardDiskData.Partition;
-            this.value5.Text = HardDiskData.TotalCylinder;
-            this.value6.Text = HardDiskData.TotalHeads;
-            this.value7.Text = HardDiskData.TotalSectors;
-            this.value8.Text = HardDiskData.TotalTracks;
-            this.value9.Text = HardDiskData.TracksPerCylinders;
-            this.value10.Text = HardDiskData.BytesPerSector;
-            this.value11.Text = HardDiskData.SectorsPerTrack;
+            foreach(var item in docs)
+            {
+                this.value1.Text = item.Name;
+                this.value2.Text = item.Capacity.ToString();
+                this.value3.Text = item.InterfaceType;
+                this.value4.Text = item.Partition.ToString();
+                this.value5.Text = item.TotalCylinder.ToString();
+                this.value6.Text = item.TotalHeads.ToString();
+                this.value7.Text = item.TotalSectors.ToString();
+                this.value8.Text = item.TotalTracks.ToString();
+                this.value9.Text = item.TracksPerCylinders.ToString();
+                this.value10.Text = item.BytesPerSector.ToString();
+                this.value11.Text = item.SectorsPerTracks.ToString();
+
+            }
+
 
 
 

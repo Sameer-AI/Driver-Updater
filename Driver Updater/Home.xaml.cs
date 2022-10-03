@@ -10,6 +10,7 @@ using System.Windows.Navigation;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace Driver_Updater
 {
@@ -21,16 +22,17 @@ namespace Driver_Updater
         OverAllInfoDataStore overAllPageInfo = new OverAllInfoDataStore();
         OsDataStore osInfoBlock = new OsDataStore();
         ProcessorDataStore processorInfoBlock = new ProcessorDataStore();
-        MemoryDeviceDataStore memoryInfoBlock = new MemoryDeviceDataStore();
 
+        public ObservableCollection<MemoryDeviceDataStore> memoryInfoBlock = new ObservableCollection<MemoryDeviceDataStore>();
 
-        public ObservableCollection<MemoryDeviceDataStore> Devices = new ObservableCollection<MemoryDeviceDataStore>();
-
+        VideoDriverDataStore videoDriverInfoBlock = new VideoDriverDataStore();
+        HardDiskDataStrore driveInfoBlock = new HardDiskDataStrore();
 
         public Home()
         {
             InitializeComponent();
-            PcInfoMethod();/*This method is used for gathering basic os and hardware specs 
+            dbDataStoreMethodsThread();
+            /*This method is used for gathering basic os and hardware specs 
                             * we can further modify these mthod to sut are needs
                             * for now we are only looking at 3 value but rest can also be used
                             */
@@ -42,6 +44,26 @@ namespace Driver_Updater
 
 
         }
+
+        private void dbDataStoreMethodsThread()
+        {
+            BackgroundWorker dbDataStoreWorker = new BackgroundWorker();
+            dbDataStoreWorker.WorkerReportsProgress = false;
+            dbDataStoreWorker.DoWork += dbDataStore_DoWork;
+            dbDataStoreWorker.RunWorkerAsync();
+
+             
+        }
+
+
+
+        private void dbDataStore_DoWork(object sender, DoWorkEventArgs e)
+        {
+            PcInfoMethod();
+        }
+
+       
+
         private void PcInfoMethod()
 
         {   
@@ -71,13 +93,13 @@ namespace Driver_Updater
             getBIOSInfo();
 
             //these methods are used for Memory Device
-
+            getMemoryDeviceData();
 
             //these methods are used for Display
-
+            getDisplayData();
 
             //these method are used for Drives
-
+            getDriveData();
 
 
         }
@@ -230,19 +252,86 @@ namespace Driver_Updater
 
             //This section is for Memory Device page
 
+            if (db.MEMORY_DEVICE.Count() == 0)
+            { int i = 0;
+                foreach (MemoryDeviceDataStore Device in memoryInfoBlock)
+                {
+
+                    MEMORY_DEVICE memoryDeviceBlock = new MEMORY_DEVICE()
+                    { ID = i + 1,
+                     TOTAL_MEMORY=Device.TOTAL_MEMORY,
+                     MEMORY_BANK=Device.MemoryBank,
+                     DESCRIPTION=Device.Description,
+                     DEVICE_LOCATOR=Device.DeviceLocator,
+                     CAPACITY=Device.Capacity,
+                     SPEED_LABEL=Device.Speed,
+                     MANUFACTURER=Device.Manufacturer,
+                     DATA_WIDTH=Device.DataWidth,
+                     MEMORY_TYPE=Device.MemoryType,
+                     FORM_FACTOR=Device.FormFactor
+
+                    };
+
+                    Console.WriteLine("NEW Memory Device STRING ROW HAS BEEN INSERTED");
+                    db.MEMORY_DEVICE.Add(memoryDeviceBlock);
+                    db.SaveChanges();
+                    i++;
+                }
+            }
+
+            // THis section is for Display
+            
+            if (db.DISPLAYs.Count() == 0)
+            {
+                DISPLAY displayBlock = new DISPLAY()
+                {
+                    NAME= videoDriverInfoBlock.Name,
+                    VIDEO_PROCESSOR=videoDriverInfoBlock.VideoProcessor,
+                    MANUFACTURER=videoDriverInfoBlock.Manufacturer,
+                    VIDEO_ARCHITECTURE=videoDriverInfoBlock.VideoArchitecture,
+                    DAC_TYPE=videoDriverInfoBlock.DACType,
+                    MEMORY_SIZE=videoDriverInfoBlock.MemorySize,
+                    MOUSE=videoDriverInfoBlock.MemoryType,
+                    VIDEO_MODE=videoDriverInfoBlock.VideoMode,
+                    CURRENT_REFRESH_RATE=videoDriverInfoBlock.CurrentRefreshRate,
+                    DRIVER_VIRSION=videoDriverInfoBlock.DriverVersion,
+                    DRIVER_DATE=videoDriverInfoBlock.DriverDate,
+
+                }; 
+
+                    Console.WriteLine("NEW Display Device STRING ROW HAS BEEN INSERTED");
+                    db.DISPLAYs.Add(displayBlock);
+                    db.SaveChanges();
+
+             
+            }
+
+
+            // THis section is for DRIVES   
+
             if (db.DRIVES.Count() == 0)
             {
                 DRIVE driveBlock = new DRIVE()
                 {
-                    
-
-
+                    NAME = driveInfoBlock.Name,
+                    CAPACITY= driveInfoBlock.Capacity,
+                    INTERFACE_TYPE= driveInfoBlock.InterfacteType,
+                    PARTITIONS= driveInfoBlock.Partition,
+                    TOTAL_CYLINDERS= driveInfoBlock.TotalCylinder,
+                    TOTAL_HEADS= driveInfoBlock.TotalHeads,
+                    TOTAL_SECTORS= driveInfoBlock.TotalSectors,
+                    TOTAL_TRACKS= driveInfoBlock.TotalTracks,
+                    TRACKS_PER_CYLINDERS= driveInfoBlock.TracksPerCylinders,
+                    BYTES_PER_SECTOR= driveInfoBlock.BytesPerSector,
+                    SECTORS_PER_TRACK= driveInfoBlock.SectorsPerTrack,
 
                 };
 
-                Console.WriteLine("NEW Drive STRING ROW HAS BEEN INSERTED");
+                Console.WriteLine("NEW Drives STRING ROW HAS BEEN INSERTED");
                 db.DRIVES.Add(driveBlock);
                 db.SaveChanges();
+
+
             }
 
         }
@@ -585,12 +674,12 @@ namespace Driver_Updater
 
         // This method is for Memory Devices
 
-        public void getData()
+        public void getMemoryDeviceData()
         { 
             
             
             int i = 0;
-            long totalMemory = 0;
+            float totalMemory = 0;
 
             ManagementObjectSearcher objSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMemory");
 
@@ -598,32 +687,83 @@ namespace Driver_Updater
 
             foreach (ManagementObject obj in objCollection)
             {
+                totalMemory += float.Parse(obj["Capacity"].ToString());
 
-
-                Devices.Add(new MemoryDeviceDataStore
+                memoryInfoBlock.Add(new MemoryDeviceDataStore
                 {
                     MemoryBank = obj["BankLabel"].ToString(),
                     Description = obj["Description"].ToString(),
                     DeviceLocator = obj["DeviceLocator"].ToString(),
-                    Capacity = obj["Capacity"].ToString(),
-                    Speed = String.Format("{0} Hz", obj["Speed"].ToString()), //String.Format("Hello {0}", name)
+                    Capacity = float.Parse(obj["Capacity"].ToString()),
+                    Speed = Convert.ToInt32(obj["Speed"].ToString()), //String.Format("Hello {0}", name)
                     Manufacturer = obj["Manufacturer"].ToString(),
-                    DataWidth = obj["DataWidth"].ToString(),
-                    MemoryType = obj["MemoryType"].ToString(),
-                    FormFactor = obj["FormFactor"].ToString()
-
+                    DataWidth = Convert.ToInt32(obj["DataWidth"].ToString()),
+                    MemoryType = Convert.ToInt32(obj["MemoryType"].ToString()),
+                    FormFactor = Convert.ToInt32(obj["FormFactor"].ToString()),
+                    TOTAL_MEMORY= totalMemory
                 });
 
-               
 
+//               
 
             }
+
+           
 
 
         }
 
+        // This method is for Display Page
 
-        
+        public void getDisplayData()
+        {
+            ManagementObjectSearcher objectSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
+
+            ManagementObjectCollection objCollection = objectSearcher.Get();
+
+            foreach (ManagementObject obj in objCollection)
+            {
+
+                videoDriverInfoBlock.Name = obj["Name"].ToString();
+                videoDriverInfoBlock.VideoProcessor = obj["VideoProcessor"].ToString();
+                videoDriverInfoBlock.Manufacturer = obj["AdapterCompatibility"].ToString();
+                videoDriverInfoBlock.VideoArchitecture = Convert.ToInt32(obj["VideoArchitecture"].ToString());
+                videoDriverInfoBlock.DACType = obj["AdapterDACType"].ToString();
+                videoDriverInfoBlock.MemorySize = float.Parse(obj["AdapterRAM"].ToString());
+                videoDriverInfoBlock.MemoryType = Convert.ToInt32(obj["VideoMemoryType"].ToString());
+                videoDriverInfoBlock.VideoMode = obj["VideoModeDescription"].ToString();
+                videoDriverInfoBlock.CurrentRefreshRate = Convert.ToInt32(obj["CurrentRefreshrate"].ToString());
+                videoDriverInfoBlock.DriverVersion = obj["DriverVersion"].ToString();
+                videoDriverInfoBlock.DriverDate = obj["DriverDate"].ToString();
+
+
+            }
+        }
+
+        // This method is for Drive Page
+
+        public void getDriveData()
+        {
+            ManagementObjectSearcher objSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_DiskDrive");
+            ManagementObjectCollection objCollections = objSearcher.Get();
+            foreach (ManagementObject obj in objCollections)
+            {
+
+                driveInfoBlock.Name = obj["Caption"].ToString();
+                driveInfoBlock.Capacity = float.Parse(obj["Size"].ToString());
+                driveInfoBlock.InterfacteType = obj["InterfaceType"].ToString();
+                driveInfoBlock.Partition = Convert.ToInt32(obj["Partitions"].ToString());
+                driveInfoBlock.TotalCylinder = Convert.ToInt32(obj["TotalCylinders"].ToString());
+                driveInfoBlock.TotalHeads = Convert.ToInt32(obj["TotalHeads"].ToString());
+                driveInfoBlock.TotalSectors = Convert.ToInt32(obj["TotalSectors"].ToString());
+                driveInfoBlock.TotalTracks = Convert.ToInt32(obj["TotalTracks"].ToString());
+                driveInfoBlock.BytesPerSector = Convert.ToInt32(obj["BytesPerSector"].ToString());
+                driveInfoBlock.SectorsPerTrack = Convert.ToInt32(obj["SectorsPerTrack"].ToString());
+                driveInfoBlock.TracksPerCylinders = Convert.ToInt32(obj["TracksPerCylinder"].ToString());
+
+            }
+        }
+
     }
 }
      

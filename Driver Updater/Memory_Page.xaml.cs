@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Driver_Updater.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -26,48 +27,58 @@ namespace Driver_Updater
         public List<DynamicGridFrame> Frames = new List<DynamicGridFrame>();
 
 
-        public ObservableCollection<MemoryDeviceDataStore> Devices = new ObservableCollection<MemoryDeviceDataStore>();
+        public MemoryDeviceDataStore Device = new MemoryDeviceDataStore();
 
         public Memory_Page()
         {
             InitializeComponent();
-            getData();
+            setData();
            
 
 
         }
 
-        public void getData()
-        {
-            int i = 0;
-            long totalMemory = 0;
+        public void setData()
+        { int i = 0;
+            DriverUpdaterDataStoreEntities db = new DriverUpdaterDataStoreEntities();
 
-            ManagementObjectSearcher objSearcher = new ManagementObjectSearcher("SELECT * FROM Win32_PhysicalMemory");
+            var docs = from d in db.MEMORY_DEVICE
+                       select new 
+                       {
+                           TOTAL_MEMORY=d.TOTAL_MEMORY,
+                           MEMORY_BANK=d.MEMORY_BANK,
+                           DESCRIPTION=d.DESCRIPTION,
+                           DEVICE_LOCATOR=d.DEVICE_LOCATOR,
+                           CAPACITY=d.CAPACITY,
+                           SPEED_LABEL=d.SPEED_LABEL,
+                           MANUFACTURER=d.MANUFACTURER,
+                           DATA_WIDTH=d.DATA_WIDTH,
+                           MEMORY_TYPE=d.MEMORY_TYPE,
+                           FORM_FACTOR=d.FORM_FACTOR
+                       };
 
-            ManagementObjectCollection objCollection = objSearcher.Get();
-
-            foreach (ManagementObject obj in objCollection)
+            foreach (var item in docs)
             {
 
+                Device.TOTAL_MEMORY = (float)item.TOTAL_MEMORY;
+                Device.MemoryBank = item.MEMORY_BANK;
+                Device.Description = item.DESCRIPTION;
+                Device.DeviceLocator = item.DEVICE_LOCATOR;
+                Device.Capacity = (float)item.CAPACITY;
+                Device.Speed = (int)item.SPEED_LABEL;
+                Device.Manufacturer=item.MANUFACTURER;
+                Device.DataWidth = (int)item.DATA_WIDTH;
+                Device.MemoryType = (int)item.MEMORY_TYPE;
+                Device.FormFactor = (int)item.FORM_FACTOR;
 
-                Devices.Add(new MemoryDeviceDataStore
-                {
-                MemoryBank = obj["BankLabel"].ToString(),
-                Description = obj["Description"].ToString(),
-                DeviceLocator = obj["DeviceLocator"].ToString(),
-                Capacity = obj["Capacity"].ToString(),
-                Speed = String.Format("{0} Hz", obj["Speed"].ToString()), //String.Format("Hello {0}", name)
-                Manufacturer = obj["Manufacturer"].ToString(),
-                DataWidth = obj["DataWidth"].ToString(),
-                MemoryType = obj["MemoryType"].ToString(),
-                FormFactor = obj["FormFactor"].ToString()
 
-                });
 
-                totalMemory += long.Parse(obj["Capacity"].ToString());
 
-                this.TotalMem.Text =String.Format("{0} GB", totalMemory.ToString());
-                Frames.Add(new DynamicGridFrame(Devices[i]));
+
+
+
+
+                Frames.Add(new DynamicGridFrame(Device));
 
 
 

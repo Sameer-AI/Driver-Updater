@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Driver_Updater.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -27,20 +28,22 @@ namespace Driver_Updater
     public partial class DriverScanningPage : Page
     {
         List<ScannedDriverDataStore> Drivers = new List<ScannedDriverDataStore>();
+        DriverUpdaterDataStoreEntities db = new DriverUpdaterDataStoreEntities();
 
         public DriverScanningPage()
         {
             InitializeComponent();
 
-            loaderStart();
             driverScanner();
+            loaderStart();
+           
 
 
         }
 
         private void loaderStart()
         {
-
+           
             //this thread worker is designed to operated only progress Bar
 
             BackgroundWorker worker = new BackgroundWorker();
@@ -96,10 +99,6 @@ namespace Driver_Updater
             scanWorker.ProgressChanged += scanWorker_ProgressChenged;
             scanWorker.RunWorkerAsync();
 
-      
-
-
-            
 
         }
 
@@ -118,7 +117,7 @@ namespace Driver_Updater
 
             //drverstore
 
-            
+            int i = 0;
             foreach (ManagementObject obj in objCollection2)
 
             {
@@ -143,18 +142,36 @@ namespace Driver_Updater
                      HardwareId=hardwareId,
                      InfName=infName
                  });
-                
 
+                DRIVER_DETAILS driverBlock = new DRIVER_DETAILS()
+                {
+                    ID = i + 1,
+                    FRIENDLY_NAME = Drivers[i].FriendlyName,
+                    CATEGORY      = Drivers[i].Category,
+                    CURRENT_DATE  = Drivers[i].CurrentDate,
+                    DRIVER_VIRSION= Drivers[i].DriverVersion,
+                    MANUFACTURER  = Drivers[i].Manufacturer,
+                    DEVICE_ID     = Drivers[i].DeviceId,
+                    HARDWARE_ID   = Drivers[i].HardwareId,
+                    INF_NAME      = Drivers[i].InfName
+
+                };
+                i++;
+                
+                db.DRIVER_DETAILS.Add(driverBlock);
+                db.SaveChanges();
+                
+                 
             }
 
             var scanWorker=sender as BackgroundWorker;
 
-            int i = 0;
+            int j = 0;
             foreach(var driver in Drivers)
             {
                 Thread.Sleep(80);
                 scanWorker.ReportProgress(i,driver.FriendlyName);
-                i++;
+                j++;
             }
 
             scanWorker.ReportProgress(100,"All Drivers Scanned !!!");
@@ -167,4 +184,5 @@ namespace Driver_Updater
            
         }
     }
+    
 }

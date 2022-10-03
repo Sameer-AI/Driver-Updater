@@ -226,46 +226,46 @@
       <DependentUpon>Memory_Page.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\DISPLAY.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DriverUpdaterDataStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DRIVE.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DriverUpdaterDataStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DriverUpdaterDataStore.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DriverUpdaterDataStore.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DriverUpdaterDataStore.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DriverUpdaterDataStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DriverUpdaterDataStore.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DriverUpdaterDataStore.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\DRIVER_DETAILS.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DriverUpdaterDataStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\InfoBlockOverAll.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DriverUpdaterDataStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LICENSE.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DriverUpdaterDataStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MEMORY_DEVICE.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>DriverUpdaterDataStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\OS.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DriverUpdaterDataStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PROCESSOR_AND_MOTHERBOARD.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DriverUpdaterDataStore.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TIME_STAMPS.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>DriverUpdaterDataStore.tt</DependentUpon>
     </Compile>
     <Compile Include="MonitorDeviceDataStore.cs" />
     <Compile Include="OldDriverInfo.xaml.cs">
@@ -406,12 +406,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\Model1.edmx">
+    <EntityDeploy Include="Models\DriverUpdaterDataStore.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>DriverUpdaterDataStore.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="Models\DriverUpdaterDataStore.edmx.diagram">
+      <DependentUpon>DriverUpdaterDataStore.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -607,16 +607,17 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DriverUpdaterDataStore.mdf</DependentUpon>
     </Content>
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="Models\DriverUpdaterDataStore.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>DriverUpdaterDataStore.edmx</DependentUpon>
+      <LastGenOutput>DriverUpdaterDataStore.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\DriverUpdaterDataStore.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>DriverUpdaterDataStore.edmx</DependentUpon>
+      <LastGenOutput>DriverUpdaterDataStore.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

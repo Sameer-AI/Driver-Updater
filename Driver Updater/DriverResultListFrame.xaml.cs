@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,6 +24,18 @@ namespace Driver_Updater
         public DriverResultListFrame()
         {
             InitializeComponent();
+        }
+
+        public DriverResultListFrame(ScannedDriverDataStore obj)
+        {
+            InitializeComponent();
+            
+            DateTime? driverDateParsed = ManagementDateTimeConverter.ToDateTime(obj.CurrentDate);
+            Console.WriteLine(driverDateParsed);
+            Friendly_Name.Text = obj.FriendlyName;
+            Date.Text = String.Format("Current Date:{0}", obj.CurrentDate);
+
+
         }
     }
 }

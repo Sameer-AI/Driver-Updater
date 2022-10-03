@@ -98,67 +98,67 @@ namespace Driver_Updater
         
 
 
-        public String Name
+        public string Name
         {
             get;
             set;
         }
 
-        public String Capacity
+        public float Capacity
         {
             get;
             set;
         }
 
-        public String InterfacteType
+        public string InterfacteType
         {
             get;
             set;
         }
 
-        public String Partition
+        public int Partition
         {
             get;
             set;
         }
 
-        public String TotalCylinder
+        public int TotalCylinder
         {
             get;
             set;
         }
 
-        public String TotalHeads
+        public int TotalHeads
         {
             get;
             set;
         }
 
-        public String TotalSectors
+        public int TotalSectors
         {
             get;
             set;
         }
 
-        public String TotalTracks
+        public int TotalTracks
         {
             get;
             set;
         }
 
-        public String TracksPerCylinders
+        public int TracksPerCylinders
         {
             get;
             set;
         }
 
-        public String BytesPerSector
+        public int BytesPerSector
         {
             get;
             set;
         }
 
-        public String SectorsPerTrack
+        public int SectorsPerTrack
         {
             get;
             set;

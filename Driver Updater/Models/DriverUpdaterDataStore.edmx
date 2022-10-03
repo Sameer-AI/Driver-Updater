@@ -27,14 +27,14 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="FRIENDLY_NAME" Type="char" MaxLength="50" />
-          <Property Name="CATEGORY" Type="char" MaxLength="50" />
-          <Property Name="CURRENT_DATE" Type="char" MaxLength="50" />
-          <Property Name="DRIVER_VIRSION" Type="char" MaxLength="50" />
-          <Property Name="MANUFACTURER" Type="char" MaxLength="50" />
-          <Property Name="DEVICE_ID" Type="char" MaxLength="50" />
-          <Property Name="HARDWARE_ID" Type="char" MaxLength="50" />
-          <Property Name="INF_NAME" Type="char" MaxLength="50" />
+          <Property Name="FRIENDLY_NAME" Type="char" MaxLength="150" />
+          <Property Name="CATEGORY" Type="char" MaxLength="150" />
+          <Property Name="CURRENT_DATE" Type="char" MaxLength="150" />
+          <Property Name="DRIVER_VIRSION" Type="char" MaxLength="150" />
+          <Property Name="MANUFACTURER" Type="char" MaxLength="150" />
+          <Property Name="DEVICE_ID" Type="char" MaxLength="150" />
+          <Property Name="HARDWARE_ID" Type="char" MaxLength="150" />
+          <Property Name="INF_NAME" Type="char" MaxLength="150" />
           <Property Name="FILE_CONTENT" Type="varbinary" MaxLength="1" />
           <Property Name="DRIVER_DATE" Type="datetime" />
           <Property Name="CREATED_AT" Type="datetime" />
@@ -192,14 +192,14 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="FRIENDLY_NAME" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="CATEGORY" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="CURRENT_DATE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="DRIVER_VIRSION" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="MANUFACTURER" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="DEVICE_ID" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="HARDWARE_ID" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
-          <Property Name="INF_NAME" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="FRIENDLY_NAME" Type="String" MaxLength="150" FixedLength="true" Unicode="false" />
+          <Property Name="CATEGORY" Type="String" MaxLength="150" FixedLength="true" Unicode="false" />
+          <Property Name="CURRENT_DATE" Type="String" MaxLength="150" FixedLength="true" Unicode="false" />
+          <Property Name="DRIVER_VIRSION" Type="String" MaxLength="150" FixedLength="true" Unicode="false" />
+          <Property Name="MANUFACTURER" Type="String" MaxLength="150" FixedLength="true" Unicode="false" />
+          <Property Name="DEVICE_ID" Type="String" MaxLength="150" FixedLength="true" Unicode="false" />
+          <Property Name="HARDWARE_ID" Type="String" MaxLength="150" FixedLength="true" Unicode="false" />
+          <Property Name="INF_NAME" Type="String" MaxLength="150" FixedLength="true" Unicode="false" />
           <Property Name="FILE_CONTENT" Type="Binary" MaxLength="1" FixedLength="false" />
           <Property Name="DRIVER_DATE" Type="DateTime" Precision="3" />
           <Property Name="CREATED_AT" Type="DateTime" Precision="3" />

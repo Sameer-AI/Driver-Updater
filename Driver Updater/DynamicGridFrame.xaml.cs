@@ -49,7 +49,7 @@ namespace Driver_Updater
         public DynamicGridFrame(MemoryDeviceDataStore tempObj)
         {
 
-        
+            
             InitializeComponent();
             getData(tempObj);
             this.label.Text = Label;
@@ -80,6 +80,7 @@ namespace Driver_Updater
 
         public void getData(MemoryDeviceDataStore tempObj)
         {
+            
             Label = tempObj.PhysicalMemoryLabel;
             Label1 = tempObj.MemoryBankLabel;
             Label2 = tempObj.DescriptionLabel;
@@ -94,14 +95,12 @@ namespace Driver_Updater
             Value1 = tempObj.MemoryBank;
             Value2 = tempObj.Description;
             Value3 = tempObj.DeviceLocator;
-            Value4 = tempObj.Capacity;
-            Value5 = tempObj.Speed;
+            Value4 = tempObj.Capacity.ToString();
+            Value5 = tempObj.Speed.ToString();
             Value6 = tempObj.Manufacturer;
-            Value7 = tempObj.DataWidth;
-            Value8 = tempObj.MemoryType;
-            Value9 = tempObj.FormFactor;
-
-
+            Value7 = tempObj.DataWidth.ToString();
+            Value8 = tempObj.MemoryType.ToString();
+            Value9 = tempObj.FormFactor.ToString();
 
         }
 

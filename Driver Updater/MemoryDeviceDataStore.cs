@@ -22,17 +22,6 @@ namespace Driver_Updater
         string _formFactorLabel = "Form Factor";
 
 
-        
-        string _memoryBank ;
-        string _description;
-        string _deviceLocator ;
-        string _capacity;
-        string _speed ;
-        string _manufacturer ;
-        string _dataWidth;
-        string _memoryType;
-        string _formFactor;
-
 
         public string PhysicalMemoryLabel
         {
@@ -54,7 +43,6 @@ namespace Driver_Updater
            
 
         }
-
         public string DescriptionLabel
         {
             get
@@ -124,110 +112,72 @@ namespace Driver_Updater
 
     
 
-    public string MemoryBank
+        public string MemoryBank
         {
-            get
-            {
-                return _memoryBank;
+            get;
 
-            }
-            set
-            {
-                _memoryBank = value;
-            }
+            set;
+            
 
         }
-
         public string Description
         {
-            get
-            {
-                return _description;
+            get;
 
-            }
-            set
-            {
-                _description = value;
-            }
+            set;
+            
         }
         public string DeviceLocator
         {
-            get
-            {
-                return _deviceLocator;
-            }
-            set
-            {
-                _deviceLocator = value;
-            }
+            get;
+
+            set;
+            
 
         }
-        public string Capacity
+        public float Capacity
         {
-            get
-            {
-                return _capacity;
-            }
-            set
-            {
-                _capacity = value;
-            }   
+            get;
+
+            set;
+            
         }
-        public string Speed
+        public int Speed
         {
-            get
-            {
-                return _speed;
-            }
-            set
-            {
-                _speed = value;
-            }   
+            get;
+
+            set;
+           
         }
         public string Manufacturer
         {
-            get
-            {
-                return _manufacturer;
-            }
-            set
-            {
-                _manufacturer = value;
-            }   
+            get;
+
+            set;
+            
         }
-        public string DataWidth
+        public int DataWidth
         {
-            get
-            {
-                return _dataWidth;
-            }
-            set
-            {
-                _dataWidth = value;
-            }
+            get;
+
+            set;
+            
         }
-        public string MemoryType
+        public int MemoryType
         {
-            get
-            {
-                return _memoryType;
-            }
-            set
-            {
-                _memoryType = value;
-            }   
+            get;
+
+            set;
+              
         }
-        public string FormFactor
+        public int FormFactor
         {
-            get
-            {
-                return _formFactor;
-            }
-            set
-            {
-                _formFactor = value;
-            }   
+            get;
+
+            set;
+              
         }
+        public float TOTAL_MEMORY { get; set; }
 
     }
 }
