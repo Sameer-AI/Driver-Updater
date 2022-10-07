@@ -24,8 +24,8 @@ namespace Driver_Updater.Models
         public string HARDWARE_ID { get; set; }
         public string INF_NAME { get; set; }
         public byte[] FILE_CONTENT { get; set; }
-        public Nullable<System.DateTime> DRIVER_DATE { get; set; }
-        public Nullable<System.DateTime> CREATED_AT { get; set; }
-        public Nullable<System.DateTime> UPDATED_AT { get; set; }
+        public string DRIVER_DATE { get; set; }
+        public string CREATED_AT { get; set; }
+        public string UPDATED_AT { get; set; }
     }
 }

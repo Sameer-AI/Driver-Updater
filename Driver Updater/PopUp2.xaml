@@ -34,7 +34,11 @@
         <Button Content="X&#xD;&#xA;" HorizontalAlignment="Left" Height="16.001" Margin="362.684,0.333,0,0" VerticalAlignment="Top" Width="20"/>
         <TextBlock HorizontalAlignment="Left" Height="52" Margin="92.655,35.67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="212" Foreground="#FFE6E0E0"><Run FontWeight="Bold" FontSize="10" Text="N devices need up-to-date drivers."/><LineBreak/><Run FontSize="8" Text="Update your outdated drivers to improve the stability of your PC"/></TextBlock>
         <Rectangle Fill="#FF99AAC1" HorizontalAlignment="Left" Height="34.658" Margin="23.335,35.67,0,0" Stroke="Black" VerticalAlignment="Top" Width="45.667"/>
-        <ScrollViewer HorizontalAlignment="Left" Height="115" Margin="10,76.989,0,0" VerticalAlignment="Top" Width="372" Background="#FF1E2838"/>
+        <ScrollViewer HorizontalAlignment="Left" Height="115" Margin="10,76.989,0,0" VerticalAlignment="Top" Width="372" Background="#FF1E2838">
+            <StackPanel x:Name="FrameSetter"  Orientation="Vertical">
+                
+            </StackPanel>
+        </ScrollViewer>
         <TextBlock HorizontalAlignment="Left" Height="12.666" Margin="12,209.167,0,0" TextWrapping="Wrap" Text="View more outdated drivers &gt;" VerticalAlignment="Top" Width="217.333" FontSize="8" Foreground="#FFAFDEEC" TextDecorations="Underline"/>
         <Button Content="Update All" HorizontalAlignment="Left" Height="19.333" Margin="262,209.167,0,0" VerticalAlignment="Top" Width="120"/>
 

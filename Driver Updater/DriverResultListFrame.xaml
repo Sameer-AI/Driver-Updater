@@ -5,17 +5,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Driver_Updater"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Width="650"
-    Height="75"
-    d:DesignWidth="800"
+    Width="900"
+    Height="65"
+    d:DesignWidth="900"
     mc:Ignorable="d">
-    <Grid Margin="1,0,0,0.3" Background="Snow">
+    <Grid
+        Width="900"
+        Margin="0,0,0,0"
+        Background="White">
 
-        <StackPanel Margin="0,0,0,0" Orientation="Horizontal">
+        <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
             <CheckBox
                 Width="15"
                 Height="36"
-                Margin="10,10,0,10"
+                Margin="10,5,0,10"
                 Padding="0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
@@ -23,60 +26,81 @@
                 Content=""
                 RenderTransformOrigin="0.5,0.5" />
             <Button
-                Width="60"
-                Height="60"
-                Margin="10,10,0,0"
+                x:Name="icon_content"
+                Width="35"
+                Height="35"
+                Margin="20,10,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Background="{x:Null}"
                 BorderBrush="{x:Null}"
-                Content="Icon&#xD;&#xA; Button" />
-            <Button
-                Width="200"
-                Height="60"
-                Margin="10,10,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                Background="{x:Null}"
-                BorderBrush="{x:Null}"
-                TextOptions.TextFormattingMode="Display">
+                Click="Info_browser"
+                Content="Icon&#xD;&#xA; Button" Foreground="#00000000" >
+                
 
-                <TextBlock
-                    x:Name="Friendly_Name"
-                    FontSize="13"
-                    Text="" />
+            </Button>
+            <Button
+                x:Name="Friendly_Name_Content"
+                Width="340"
+                Height="30"
+                Margin="10,10,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}"
+                
+                TextOptions.TextFormattingMode="Display" Click="Info_brower_three" FontFamily="Global Sans Serif" FontSize="14" HorizontalContentAlignment="Left" >
+
             </Button>
 
 
-            <StackPanel Orientation="Vertical">
+            <StackPanel Margin="10,0,0,0" Orientation="Vertical">
                 <TextBlock
                     x:Name="Date"
-                    Width="178"
-                    Height="21"
-                    Margin="10,15,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Text="Available/Current Date:"
-                    TextWrapping="Wrap" />
-                <Rectangle
-                    Width="120"
-                    Height="22.625"
+                    Width="150"
+                    Height="15"
                     Margin="10,5,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Fill="#FF2C2C9E"
-                    Stroke="Black" />
+                    Text="Available/Current Date:"
+                    TextWrapping="Wrap" FontFamily="Global Sans Serif" />
+                <Rectangle
+                    Width="115"
+                    Height="15"
+                    Margin="10,5,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top" >
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="ICONS 4.png" Stretch="Uniform"/>
+                    </Rectangle.Fill>
+                   
+                </Rectangle>
             </StackPanel>
+            
+            <Rectangle Width="20" Height="20" Margin="20,0,0,0">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="ICONS 1.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
 
             <Button
+                x:Name="Update_now"
                 Width="140"
                 Height="40"
-                Margin="10,20,0,0"
+                Margin="5,10,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="{x:Null}"
                 BorderBrush="{x:Null}"
-                Content="Update Now/ Up to Date" />
+                Click="Info_browser_two"
+                TextOptions.TextFormattingMode="Display" FontFamily="Global Sans Serif" FontSize="12" HorizontalContentAlignment="Left" >
+
+
+                <Label
+                    
+                    FontSize="13"
+                    Content="Update Now" />
+
+            </Button>
 
         </StackPanel>
 

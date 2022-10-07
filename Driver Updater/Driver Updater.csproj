@@ -208,6 +208,9 @@
     <Compile Include="DriverInfoPop.xaml.cs">
       <DependentUpon>DriverInfoPop.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DriverListFrameToast.xaml.cs">
+      <DependentUpon>DriverListFrameToast.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DriverResultListFrame.xaml.cs">
       <DependentUpon>DriverResultListFrame.xaml</DependentUpon>
     </Compile>
@@ -268,9 +271,6 @@
       <DependentUpon>DriverUpdaterDataStore.tt</DependentUpon>
     </Compile>
     <Compile Include="MonitorDeviceDataStore.cs" />
-    <Compile Include="OldDriverInfo.xaml.cs">
-      <DependentUpon>OldDriverInfo.xaml</DependentUpon>
-    </Compile>
     <Compile Include="OperatingSystem.xaml.cs">
       <DependentUpon>OperatingSystem.xaml</DependentUpon>
     </Compile>
@@ -296,11 +296,20 @@
     </Compile>
     <Compile Include="ProcessorDataStore.cs" />
     <Compile Include="ScannedDriverDataStore.cs" />
+    <Compile Include="updatableDriverInfo.xaml.cs">
+      <DependentUpon>updatableDriverInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Up_to_date_driver_Info.xaml.cs">
+      <DependentUpon>Up_to_date_driver_Info.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VideoDriverDataStore.cs" />
     <Compile Include="Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="DriverInfoPop.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DriverListFrameToast.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="DriverResultListFrame.xaml">
@@ -336,9 +345,6 @@
     <Page Include="Memory_Page.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OldDriverInfo.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="OperatingSystem.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -370,6 +376,12 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Drives_Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="updatableDriverInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Up_to_date_driver_Info.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Window1.xaml">
@@ -607,6 +619,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DriverUpdaterDataStore.mdf</DependentUpon>
     </Content>
+    <Resource Include="ICONS 1.png" />
+    <Resource Include="ICONS 3.png" />
+    <Resource Include="ICONS 4.png" />
     <Content Include="Models\DriverUpdaterDataStore.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DriverUpdaterDataStore.edmx</DependentUpon>

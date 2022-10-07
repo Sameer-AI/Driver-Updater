@@ -29,6 +29,7 @@ namespace Driver_Updater
     {
         List<ScannedDriverDataStore> Drivers = new List<ScannedDriverDataStore>();
         DriverUpdaterDataStoreEntities db = new DriverUpdaterDataStoreEntities();
+        List<TextBlock> textBlocks = new List<TextBlock>();
 
         public DriverScanningPage()
         {
@@ -110,6 +111,12 @@ namespace Driver_Updater
         private void scanWorker_DoWork(object sender, DoWorkEventArgs e)
 
         {
+            // Conditional control
+            int i = 0;
+
+            if (db.DRIVER_DETAILS.Count()==0)
+            { 
+
             // here we will call the scan method
             ManagementObjectSearcher objSearcher2 = new ManagementObjectSearcher("select * from Win32_PnpSignedDriver");
 
@@ -117,64 +124,88 @@ namespace Driver_Updater
 
             //drverstore
 
-            int i = 0;
-            foreach (ManagementObject obj in objCollection2)
+            
+                foreach (ManagementObject obj in objCollection2)
 
-            {
-                var infName = string.IsNullOrEmpty(obj.GetPropertyValue("InfName")?.ToString()) ? string.Empty : obj.GetPropertyValue("InfName")?.ToString();
-                var hardwareId = string.IsNullOrEmpty(obj.GetPropertyValue("HardwareId")?.ToString()) ? string.Empty : obj.GetPropertyValue("HardwareId")?.ToString();
-                var deviceId = string.IsNullOrEmpty(obj.GetPropertyValue("DeviceId")?.ToString()) ? string.Empty : obj.GetPropertyValue("DeviceId")?.ToString();
-                var driverDate = string.IsNullOrEmpty(obj.GetPropertyValue("DriverDate")?.ToString()) ? string.Empty : obj.GetPropertyValue("DriverDate")?.ToString();
-                var driverVersion = string.IsNullOrEmpty(obj.GetPropertyValue("DriverVersion")?.ToString()) ? string.Empty : obj.GetPropertyValue("DriverVersion")?.ToString();
-                var deviceName = string.IsNullOrEmpty(obj.GetPropertyValue("FriendlyName")?.ToString()) ? obj.GetPropertyValue("Description")?.ToString() : obj.GetPropertyValue("FriendlyName")?.ToString();
-                var manufacturer = string.IsNullOrEmpty(obj.GetPropertyValue("Manufacturer")?.ToString()) ? string.Empty : obj.GetPropertyValue("Manufacturer")?.ToString();
-                var deviceClass = string.IsNullOrEmpty(obj.GetPropertyValue("DeviceClass")?.ToString()) ? string.Empty : obj.GetPropertyValue("DeviceClass")?.ToString();
-
-
-                Drivers.Add(new ScannedDriverDataStore
-                 {
-                     FriendlyName =deviceName,
-                     Category = deviceClass,
-                     CurrentDate = driverDate,
-                     DriverVersion = driverVersion,
-                     Manufacturer = manufacturer,
-                     DeviceId=deviceId,
-                     HardwareId=hardwareId,
-                     InfName=infName
-                 });
-
-                DRIVER_DETAILS driverBlock = new DRIVER_DETAILS()
                 {
-                    ID = i + 1,
-                    FRIENDLY_NAME = Drivers[i].FriendlyName,
-                    CATEGORY      = Drivers[i].Category,
-                    CURRENT_DATE  = Drivers[i].CurrentDate,
-                    DRIVER_VIRSION= Drivers[i].DriverVersion,
-                    MANUFACTURER  = Drivers[i].Manufacturer,
-                    DEVICE_ID     = Drivers[i].DeviceId,
-                    HARDWARE_ID   = Drivers[i].HardwareId,
-                    INF_NAME      = Drivers[i].InfName
+                    var infName = string.IsNullOrEmpty(obj.GetPropertyValue("InfName")?.ToString()) ? string.Empty : obj.GetPropertyValue("InfName")?.ToString();
+                    var hardwareId = string.IsNullOrEmpty(obj.GetPropertyValue("HardwareId")?.ToString()) ? string.Empty : obj.GetPropertyValue("HardwareId")?.ToString();
+                    var deviceId = string.IsNullOrEmpty(obj.GetPropertyValue("DeviceId")?.ToString()) ? string.Empty : obj.GetPropertyValue("DeviceId")?.ToString();
+                    var driverDate = string.IsNullOrEmpty(obj.GetPropertyValue("DriverDate")?.ToString()) ? string.Empty : obj.GetPropertyValue("DriverDate")?.ToString();
+                    var driverVersion = string.IsNullOrEmpty(obj.GetPropertyValue("DriverVersion")?.ToString()) ? string.Empty : obj.GetPropertyValue("DriverVersion")?.ToString();
+                    var deviceName = string.IsNullOrEmpty(obj.GetPropertyValue("FriendlyName")?.ToString()) ? obj.GetPropertyValue("Description")?.ToString() : obj.GetPropertyValue("FriendlyName")?.ToString();
+                    var manufacturer = string.IsNullOrEmpty(obj.GetPropertyValue("Manufacturer")?.ToString()) ? string.Empty : obj.GetPropertyValue("Manufacturer")?.ToString();
+                    var deviceClass = string.IsNullOrEmpty(obj.GetPropertyValue("DeviceClass")?.ToString()) ? string.Empty : obj.GetPropertyValue("DeviceClass")?.ToString();
 
-                };
-                i++;
-                
-                db.DRIVER_DETAILS.Add(driverBlock);
-                db.SaveChanges();
+
+                    Drivers.Add(new ScannedDriverDataStore
+                    {
+                        FriendlyName = deviceName,
+                        Category = deviceClass,
+                        CurrentDate = driverDate,
+                        DriverVersion = driverVersion,
+                        Manufacturer = manufacturer,
+                        DeviceId = deviceId,
+                        HardwareId = hardwareId,
+                        InfName = infName
+                    });
+
+                    DRIVER_DETAILS driverBlock = new DRIVER_DETAILS()
+                    {
+                        ID = i + 1,
+                        FRIENDLY_NAME = Drivers[i].FriendlyName,
+                        CATEGORY = Drivers[i].Category,
+                        CURRENT_DATE = Drivers[i].CurrentDate,
+                        DRIVER_VIRSION = Drivers[i].DriverVersion,
+                        MANUFACTURER = Drivers[i].Manufacturer,
+                        DEVICE_ID = Drivers[i].DeviceId,
+                        HARDWARE_ID = Drivers[i].HardwareId,
+                        INF_NAME = Drivers[i].InfName
+
+                    };
+                    i++;
+
+                    db.DRIVER_DETAILS.Add(driverBlock);
+                    db.SaveChanges();
+                }
                 
                  
             }
 
+            var docs = from d in db.DRIVER_DETAILS
+                       select new
+                       {
+                           FRIENDLY_NAME = d.FRIENDLY_NAME,
+                           CATEGORY = d.CATEGORY,
+                           CURRENT_DATE = d.CURRENT_DATE,
+                           DRIVER_VERSION = d.DRIVER_VIRSION,
+                           MANUFACTURER = d.MANUFACTURER,
+                           DEVICE_ID = d.DEVICE_ID,
+                           HARDWARE_ID = d.HARDWARE_ID,
+                           INF_NAME = d.INF_NAME,
+                           FILE_CONTENT = d.FILE_CONTENT,
+                           CREATED_AT = d.CREATED_AT,
+                           UPDATED_AT = d.UPDATED_AT
+
+
+                       };
+
             var scanWorker=sender as BackgroundWorker;
 
             int j = 0;
-            foreach(var driver in Drivers)
+            foreach(var item in docs)
             {
                 Thread.Sleep(80);
-                scanWorker.ReportProgress(i,driver.FriendlyName);
+                scanWorker.ReportProgress(j,item.FRIENDLY_NAME);
+                /*
+                textBlocks.Add(new TextBlock());
+                textBlocks[j].Text = item.FRIENDLY_NAME;
+                this.DriverListSetter.Children.Add(textBlocks[j]);
+                */
                 j++;
             }
 
-            scanWorker.ReportProgress(100,"All Drivers Scanned !!!");
+            scanWorker.ReportProgress(100,"Scan Complete");
 
         }
 

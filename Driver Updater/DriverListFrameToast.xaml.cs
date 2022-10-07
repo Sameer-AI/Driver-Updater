@@ -16,13 +16,21 @@ using System.Windows.Shapes;
 namespace Driver_Updater
 {
     /// <summary>
-    /// Interaction logic for OldDriverInfo.xaml
+    /// Interaction logic for DriverListFrameToast.xaml
     /// </summary>
-    public partial class OldDriverInfo : UserControl
+    public partial class DriverListFrameToast : UserControl
     {
-        public OldDriverInfo()
+        public string FriendlyNameProp { get; set; }
+
+        public DriverListFrameToast()
         {
             InitializeComponent();
+            
+        }
+        public DriverListFrameToast(string obj)
+        {
+            InitializeComponent();
+            FriendlyName.Content = obj;
         }
     }
 }

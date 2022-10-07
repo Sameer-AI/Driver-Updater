@@ -86,7 +86,7 @@
         <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="InfoBlock">
             <BeginStoryboard x:Name="InfoBlockReverse_BeginStoryboard" Storyboard="{StaticResource InfoBlockReverse}" />
         </EventTrigger>
-        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="button1">
+        <EventTrigger RoutedEvent="UIElement.MouseEnter" SourceName="Activate_now">
             <BeginStoryboard x:Name="sideFlyOut_BeginStoryboard1" Storyboard="{StaticResource sideFlyOut}" />
         </EventTrigger>
         <EventTrigger RoutedEvent="UIElement.MouseLeave" SourceName="grid">
@@ -98,21 +98,13 @@
         </EventTrigger>
     </Page.Triggers>
 
-    <Grid x:Name="Grid" Margin="0,-1.5,0,1.5">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="131*" />
-            <ColumnDefinition Width="670*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="41*" />
-            <RowDefinition Height="409*" />
-        </Grid.RowDefinitions>
+    <Grid x:Name="Grid" Margin="0,0,0,0" Width="860" >
+
+
         <Rectangle
             x:Name="PageSection"
-            Grid.RowSpan="2"
-            Grid.ColumnSpan="2"
-            Width="691.52"
-            Height="610.046"
+            Width="900"
+            Height="600"
             Margin="0,-10.046,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
@@ -129,243 +121,21 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Grid
-            x:Name="InfoGrid"
-            Grid.Row="1"
-            Grid.Column="1"
-            Width="356.102"
-            Height="209.722"
-            Margin="532.913,152.245,-219.851,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            RenderTransformOrigin="0.5,0.5">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
-                    <RotateTransform />
-                    <TranslateTransform />
-                </TransformGroup>
-            </Grid.RenderTransform>
-            <StackPanel
-                Width="342.435"
-                Height="173.333"
-                Margin="-0.333,0,-110,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top">
-                <StackPanel
-                    x:Name="Info1"
-                    Width="20"
-                    Height="20"
-                    Margin="2,0,0,18"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top">
-                    <Rectangle
-                        Width="15"
-                        Height="15"
-                        Margin="-0.083,2,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top">
-                        <Rectangle.Fill>
-                            <ImageBrush ImageSource="11.png" Stretch="Uniform" />
-                        </Rectangle.Fill>
-                    </Rectangle>
-                </StackPanel>
-                <StackPanel
-                    x:Name="Info2"
-                    Width="20"
-                    Height="20"
-                    Margin="2,0,0,18"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top">
-                    <Rectangle
-                        Width="15"
-                        Height="15"
-                        Margin="0,-2,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top">
-                        <Rectangle.Fill>
-                            <ImageBrush ImageSource="12.png" Stretch="Uniform" />
-                        </Rectangle.Fill>
-                    </Rectangle>
-                </StackPanel>
-                <StackPanel
-                    x:Name="Info3"
-                    Width="20"
-                    Height="20"
-                    Margin="2,0,0,18"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top">
-                    <Rectangle
-                        Width="15"
-                        Height="15"
-                        Margin="0,-2,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top">
-                        <Rectangle.Fill>
-                            <ImageBrush ImageSource="13.png" Stretch="Uniform" />
-                        </Rectangle.Fill>
-                    </Rectangle>
-                </StackPanel>
-                <StackPanel
-                    x:Name="Info4"
-                    Width="20"
-                    Height="20"
-                    Margin="2,0,0,18"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top">
-                    <Rectangle
-                        Width="15"
-                        Height="15"
-                        Margin="0,-2,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top">
-                        <Rectangle.Fill>
-                            <ImageBrush ImageSource="15.png" Stretch="Uniform" />
-                        </Rectangle.Fill>
-                    </Rectangle>
-                </StackPanel>
-                <StackPanel
-                    x:Name="Info5"
-                    Width="162.451"
-                    Height="20"
-                    Margin="1,0,0,18"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Orientation="Horizontal">
-                    <Rectangle
-                        Width="15"
-                        Height="20"
-                        Margin="0,0,-14,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top">
-                        <Rectangle.Fill>
-                            <ImageBrush ImageSource="more.png" Stretch="Uniform" />
-                        </Rectangle.Fill>
-                    </Rectangle>
-                    <Button
-            Width="69"
-            Height="27.134"
-            Margin="0,0,0,-7.134"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Background="{x:Null}"
-            Click="moreWindowOpen"
-            Content="More" BorderBrush="{x:Null}" Foreground="Snow" Padding="1,1,1,11" FontSize="10" />
-                </StackPanel>
-            </StackPanel>
-            <TextBlock
-                x:Name="PcInfo"
-                Width="66.5"
-                Height="14.75"
-                Margin="23.25,0.5,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                FontFamily="Microsoft JhengHei"
-                FontSize="14"
-                FontWeight="Bold"
-                Foreground="Snow"
-                RenderTransformOrigin="0.5,0.5"
-                Text="PC INFO"
-                TextWrapping="Wrap">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform />
-                        <SkewTransform />
-                        <RotateTransform />
-                        <TranslateTransform />
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
-            <TextBlock
-                x:Name="OS"
-                Width="208.75"
-                Height="14.75"
-                Margin="22.583,38.835,-23.453,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                FontFamily="Microsoft JhengHei"
-                FontSize="8"
-                FontWeight="Bold"
-                Foreground="Snow"
-                RenderTransformOrigin="0.5,0.5"
-                Text="TextBlock"
-                TextWrapping="Wrap">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform />
-                        <SkewTransform />
-                        <RotateTransform />
-                        <TranslateTransform />
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
-            <TextBlock
-                x:Name="CPU"
-                Width="286.75"
-                Height="14.75"
-                Margin="22.583,77.835,0,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                FontFamily="Microsoft JhengHei"
-                FontSize="8"
-                FontWeight="Bold"
-                Foreground="Snow"
-                RenderTransformOrigin="0.5,0.5"
-                Text="TextBlock"
-                TextWrapping="Wrap">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform />
-                        <SkewTransform />
-                        <RotateTransform />
-                        <TranslateTransform />
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
-            <TextBlock
-                x:Name="RAM"
-                Width="208.75"
-                Height="14.75"
-                Margin="22.583,113.835,-23.453,0"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                FontFamily="Microsoft JhengHei"
-                FontSize="8"
-                FontWeight="Bold"
-                Foreground="Snow"
-                RenderTransformOrigin="0.5,0.5"
-                Text="TextBlock"
-                TextWrapping="Wrap">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform />
-                        <SkewTransform />
-                        <RotateTransform />
-                        <TranslateTransform />
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
-        </Grid>
         <Button
-            x:Name="button1"
-            Grid.Row="1"
-            Grid.Column="1"
+            x:Name="Activate_now"
             Width="147"
             Height="28"
-            Margin="375.5,455.5,0,0"
+            Margin="600,500,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="#FF2C5728"
             BorderBrush="{x:Null}"
             Content="Activate Now"
             Foreground="#FFE4E1E1" />
-        <Button
-            Grid.Row="1"
-            Grid.Column="1"
+        <Button x:Name="Key"
             Width="43"
             Height="32.5"
-            Margin="317.5,451,0,0"
+            Margin="550,500,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             BorderBrush="{x:Null}"
@@ -374,35 +144,11 @@
                 <ImageBrush ImageSource="key.png" Stretch="Uniform" />
             </Button.Background>
         </Button>
-        <Rectangle
-            x:Name="InfoBlock"
-            Grid.Row="1"
-            Grid.Column="1"
-            Width="359.1"
-            Height="151.832"
-            Margin="529.915,139.5,-219.851,0"
-            HorizontalAlignment="Left"
-            VerticalAlignment="Top"
-            Fill="#3F575757"
-            RadiusX="29"
-            RadiusY="29"
-            RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
-                    <RotateTransform />
-                    <TranslateTransform />
-                </TransformGroup>
-            </Rectangle.RenderTransform>
-        </Rectangle>
         <Ellipse
             x:Name="ellipse"
-            Grid.Row="1"
-            Grid.Column="1"
             Width="262.954"
             Height="238.157"
-            Margin="49.275,108.543,0,0"
+            Margin="264.275,155.043,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             RenderTransformOrigin="0.5,0.5">
@@ -420,11 +166,9 @@
         </Ellipse>
         <Button
             x:Name="button"
-            Grid.Row="1"
-            Grid.Column="1"
             Width="239"
             Height="241.667"
-            Margin="61.514,107.3,0,0"
+            Margin="276.514,153.8,0,0"
             Padding="1,1,1,14"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
@@ -449,11 +193,9 @@
             </Button.RenderTransform>
         </Button>
         <Grid
-            Grid.Row="1"
-            Grid.Column="1"
             Width="360"
             Height="42.5"
-            Margin="37.164,23.833,0,0"
+            Margin="214.664,53.833,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top">
             <Rectangle
@@ -490,14 +232,12 @@
         </Grid>
         <Grid
             x:Name="grid"
-            Grid.RowSpan="2"
-            Grid.Column="1"
             Width="408"
-            Height="610.046"
-            Margin="565.664,-10.046,-304.5,0"
+            Height="610"
+            Margin="861,0,-409,-10"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            RenderTransformOrigin="0.5,0.5" d:IsHidden="True">
+            RenderTransformOrigin="0.5,0.5">
             <Grid.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform />
@@ -508,9 +248,9 @@
             </Grid.RenderTransform>
             <Rectangle
                 x:Name="rectangle"
-                Width="408"
-                Margin="-36,0.15,36,-57.604"
-                HorizontalAlignment="Right"
+                Width="410"
+                Margin="0,0,-2,0"
+                HorizontalAlignment="Left"
                 Fill="#E5343434" />
             <TextBlock
                 Width="153"
@@ -524,16 +264,16 @@
                 TextAlignment="Center"
                 TextWrapping="Wrap" />
             <Rectangle
-                Width="225.5"
+                Width="250"
                 Height="2"
-                Margin="2.5,86.546,0,0"
+                Margin="3,90,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Fill="#FF919193" />
             <StackPanel
-                Width="408"
-                Height="505.817"
-                Margin="-43.5,100,0,-57.604"
+                Width="600"
+                Height="500"
+                Margin="-40,100,0,0"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top">
                 <Button
@@ -668,6 +408,235 @@
                 Foreground="#FFFDFDFD"
                 TextWrapping="Wrap"><Run Background="#FFC50808" Text="PRO !" /></TextBlock>
         </Grid>
+        <Grid
+            x:Name="InfoGrid"
+            Width="350"
+            Height="200"
+            Margin="825,183,-315,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <StackPanel
+                    x:Name="Info5"
+                    Margin="-37.75,205.222,325.299,-35.222"
+                    Orientation="Horizontal">
+                <Rectangle
+                        Width="15"
+                        Height="20"
+                        Margin="0,0,-14,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                    <Rectangle.Fill>
+                        <ImageBrush ImageSource="more.png" Stretch="Uniform" />
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Button
+                    Width="60"
+                    HorizontalAlignment="Left"
+                    Background="{x:Null}"
+                    Click="moreWindowOpen"
+                    Content="More" BorderBrush="{x:Null}" Foreground="White" Padding="1,1,1,11" FontSize="10" Margin="0,0,0,0.616" Height="29.384" VerticalAlignment="Bottom" />
+            </StackPanel>
+            <StackPanel
+                Width="350"
+                Height="200"
+                Margin="0,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top">
+                <StackPanel
+                    x:Name="Info1"
+                    Width="350"
+                    Height="20"
+                    Margin="2,0,0,18"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top" Orientation="Horizontal">
+                    <Rectangle
+                        Width="23"
+                        Height="20"
+                        Margin="0,0,5,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="11.png" Stretch="Uniform" />
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock
+                x:Name="PcInfo"
+                Width="322"
+                Height="20"
+                Margin="0,0,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontFamily="Microsoft JhengHei"
+                FontSize="10"
+                FontWeight="Bold"
+                Foreground="Snow"
+                RenderTransformOrigin="0.5,0.5"
+                Text="PC INFO"
+                TextWrapping="Wrap">
+                        <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform />
+                                <RotateTransform />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel
+                    x:Name="Info2"
+                    Width="348"
+                    Height="20"
+                    Margin="2,0,0,18"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top" Orientation="Horizontal">
+                    <Rectangle
+                        Width="19"
+                        Height="15"
+                        Margin="0,-0.008,5,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="12.png" Stretch="Uniform" />
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock
+                x:Name="OS"
+                Width="326.75"
+                Height="20"
+                Margin="0,0,-188.75,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontFamily="Microsoft JhengHei"
+                FontSize="8"
+                FontWeight="Bold"
+                Foreground="Snow"
+                RenderTransformOrigin="0.5,0.5"
+                Text="TextBlock"
+                TextWrapping="Wrap">
+                        <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform />
+                                <RotateTransform />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel
+                    x:Name="Info3"
+                    Width="340.435"
+                    Height="20"
+                    Margin="2,0,0,18"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top" Orientation="Horizontal">
+                    <Rectangle
+                        Width="22"
+                        Height="20"
+                        Margin="0,0,5,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="13.png" Stretch="Uniform" />
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock
+                x:Name="CPU"
+                Width="319.75"
+                Height="20"
+                Margin="0,0,-266.75,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontFamily="Microsoft JhengHei"
+                FontSize="8"
+                FontWeight="Bold"
+                Foreground="Snow"
+                RenderTransformOrigin="0.5,0.5"
+                Text="TextBlock"
+                TextWrapping="Wrap">
+                        <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform />
+                                <RotateTransform />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel
+                    x:Name="Info4"
+                    Width="340.435"
+                    Height="20"
+                    Margin="2,0,0,18"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top" Orientation="Horizontal">
+                    <Rectangle
+                        Width="22.5"
+                        Height="20"
+                        Margin="0,0,5,0"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="15.png" Stretch="Uniform" />
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock
+                x:Name="RAM"
+                Width="320.75"
+                Height="20"
+                Margin="0,0,-188.75,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontFamily="Microsoft JhengHei"
+                FontSize="8"
+                FontWeight="Bold"
+                Foreground="Snow"
+                RenderTransformOrigin="0.5,0.5"
+                Text="TextBlock"
+                TextWrapping="Wrap">
+                        <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform />
+                                <SkewTransform />
+                                <RotateTransform />
+                                <TranslateTransform />
+                            </TransformGroup>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Rectangle
+            x:Name="InfoBlock"
+            Width="350"
+            Height="200"
+            Margin="820.915,150,-310.915,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Fill="#3F575757"
+            RadiusX="29"
+            RadiusY="29"
+            RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
 
     </Grid>
 </Page>

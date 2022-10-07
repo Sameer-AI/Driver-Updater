@@ -107,15 +107,12 @@ namespace Driver_Updater
         private void moreWindowOpen(object sender, RoutedEventArgs e)
         {
             Application.Current.MainWindow.Effect = new BlurEffect();
-            //MainWindowGrid.Effect = new BlurEffect();
+            
 
             Window1 window = new Window1();
 
             window.Owner = Application.Current.MainWindow;
             window.ShowDialog();
-
-
-
 
 
         }

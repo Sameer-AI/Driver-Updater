@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="31b238818e81459d9ed90aa3dc6292cc" Name="Diagram1">
+      <Diagram DiagramId="a28ab524025d4ec68703628be5e8a24d" Name="Diagram1">
         <EntityTypeShape EntityType="DriverUpdaterDataStoreModel.DISPLAY" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DriverUpdaterDataStoreModel.DRIVER_DETAILS" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DriverUpdaterDataStoreModel.DRIVE" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />

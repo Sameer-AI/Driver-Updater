@@ -71,7 +71,7 @@ namespace Driver_Updater
                 Device.MemoryType = (int)item.MEMORY_TYPE;
                 Device.FormFactor = (int)item.FORM_FACTOR;
 
-
+                Console.WriteLine(item.DESCRIPTION);
 
 
 
