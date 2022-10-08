@@ -16,6 +16,7 @@
 
         <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
             <CheckBox
+                x:Name="CheckBox"
                 Width="15"
                 Height="36"
                 Margin="10,5,0,10"
@@ -24,7 +25,7 @@
                 VerticalAlignment="Center"
                 VerticalContentAlignment="Center"
                 Content=""
-                RenderTransformOrigin="0.5,0.5" />
+                RenderTransformOrigin="0.5,0.5" Checked="Checked" Unchecked="Unchecked"  />
             <Button
                 x:Name="icon_content"
                 Width="35"

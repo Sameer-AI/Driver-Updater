@@ -267,6 +267,9 @@
     <Compile Include="Models\PROCESSOR_AND_MOTHERBOARD.cs">
       <DependentUpon>DriverUpdaterDataStore.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ScanResultCheckBoxValue.cs">
+      <DependentUpon>DriverUpdaterDataStore.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TIME_STAMPS.cs">
       <DependentUpon>DriverUpdaterDataStore.tt</DependentUpon>
     </Compile>
@@ -619,9 +622,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>DriverUpdaterDataStore.mdf</DependentUpon>
     </Content>
-    <Resource Include="ICONS 1.png" />
-    <Resource Include="ICONS 3.png" />
-    <Resource Include="ICONS 4.png" />
     <Content Include="Models\DriverUpdaterDataStore.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DriverUpdaterDataStore.edmx</DependentUpon>
@@ -632,6 +632,9 @@
       <DependentUpon>DriverUpdaterDataStore.edmx</DependentUpon>
       <LastGenOutput>DriverUpdaterDataStore.cs</LastGenOutput>
     </Content>
+    <Resource Include="ICONS 1.png" />
+    <Resource Include="ICONS 3.png" />
+    <Resource Include="ICONS 4.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

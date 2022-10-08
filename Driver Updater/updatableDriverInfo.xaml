@@ -26,6 +26,8 @@
                         <StackPanel Orientation="Horizontal">
 
                             <Rectangle
+                                x:Name="icon_content"
+                                
                                 Width="54"
                                 Height="55"
                                 Margin="10,5,0,10"
@@ -80,6 +82,7 @@
                                     RenderTransformOrigin="0.5,0.5"
                                     Text="Available" />
                                 <TextBlock
+                                     x:Name="Version"
                                     Grid.Row="1"
                                     Grid.Column="0"
                                     Padding="10,8,0,0"
@@ -89,7 +92,7 @@
                                     RenderTransformOrigin="0.5,0.5"
                                     Text="Version" />
                                 <TextBlock
-                                    x:Name="Version"
+                                   
                                     Grid.Row="1"
                                     Grid.Column="1"
                                     Padding="10,8,0,0"
@@ -98,6 +101,7 @@
                                     Foreground="#FF36393C"
                                     RenderTransformOrigin="0.5,0.5"><Run Text="Details" /></TextBlock>
                                 <TextBlock
+                                     x:Name="Date"
                                     Grid.Row="2"
                                     Grid.Column="0"
                                     Padding="10,8,0,0"
@@ -107,7 +111,7 @@
                                     RenderTransformOrigin="0.5,0.5"
                                     Text="Date" />
                                 <TextBlock
-                                    x:Name="Date"
+                                   
                                     Grid.Row="2"
                                     Grid.Column="1"
                                     Padding="10,8,0,0"
@@ -115,7 +119,9 @@
                                     FontSize="14"
                                     Foreground="#FF36393C"
                                     RenderTransformOrigin="0.5,0.5"><Run Text="Details" /></TextBlock>
+                                
                                 <TextBlock
+                                    x:Name="Publisher"
                                     Grid.Row="3"
                                     Grid.Column="0"
                                     Padding="10,8,0,0"
@@ -125,7 +131,7 @@
                                     RenderTransformOrigin="0.5,0.5"
                                     Text="Publisher" />
                                 <TextBlock
-                                    x:Name="Publisher"
+                                    
                                     Grid.Row="3"
                                     Grid.Column="1"
                                     Padding="10,8,0,0"
@@ -133,6 +139,7 @@
                                     FontSize="14"
                                     Foreground="#FF36393C"
                                     RenderTransformOrigin="0.5,0.5"><Run Text="Details" /></TextBlock>
+                                
                                 <TextBlock
                                     x:Name="Status"
                                     Grid.Row="4"

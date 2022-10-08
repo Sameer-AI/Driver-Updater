@@ -68,10 +68,13 @@ namespace Driver_Updater
                 driverInfoBlock.Created_At = String.IsNullOrEmpty(item.CREATED_AT?.ToString()) ? String.Empty : item.CREATED_AT?.ToString();
                 driverInfoBlock.Updated_At = String.IsNullOrEmpty(item.UPDATED_AT?.ToString()) ? String.Empty: item.UPDATED_AT?.ToString();
 
+                if (driverInfoBlock.FriendlyName != null)
+                {
+                    Frames.Add(new DriverResultListFrame(driverInfoBlock));
+                    this.frameSetter.Children.Add(Frames[i]);
+                    i++;
+                }
                 
-                Frames.Add(new DriverResultListFrame(driverInfoBlock));
-                this.frameSetter.Children.Add(Frames[i]);
-                i++;
 
             }
 

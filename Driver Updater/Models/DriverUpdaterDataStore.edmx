@@ -145,6 +145,14 @@
           <Property Name="ACPI_SUPPORT" Type="bit" />
           <Property Name="USB_LAGACY_SUPPORT" Type="bit" />
         </EntityType>
+        <EntityType Name="ScanResultCheckBoxValues">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="varchar" MaxLength="100" />
+          <Property Name="VALUE" Type="bit" />
+        </EntityType>
         <EntityType Name="TIME_STAMPS">
           <Key>
             <PropertyRef Name="ID" />
@@ -163,6 +171,7 @@
           <EntitySet Name="MEMORY_DEVICE" EntityType="Self.MEMORY_DEVICE" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="OS" EntityType="Self.OS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PROCESSOR_AND_MOTHERBOARD" EntityType="Self.PROCESSOR_AND_MOTHERBOARD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScanResultCheckBoxValues" EntityType="Self.ScanResultCheckBoxValues" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TIME_STAMPS" EntityType="Self.TIME_STAMPS" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
@@ -310,6 +319,14 @@
           <Property Name="ACPI_SUPPORT" Type="Boolean" />
           <Property Name="USB_LAGACY_SUPPORT" Type="Boolean" />
         </EntityType>
+        <EntityType Name="ScanResultCheckBoxValue">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="VALUE" Type="Boolean" />
+        </EntityType>
         <EntityType Name="TIME_STAMPS">
           <Key>
             <PropertyRef Name="ID" />
@@ -328,6 +345,7 @@
           <EntitySet Name="MEMORY_DEVICE" EntityType="Self.MEMORY_DEVICE" />
           <EntitySet Name="OS" EntityType="DriverUpdaterDataStoreModel.OS" />
           <EntitySet Name="PROCESSOR_AND_MOTHERBOARD" EntityType="Self.PROCESSOR_AND_MOTHERBOARD" />
+          <EntitySet Name="ScanResultCheckBoxValues" EntityType="Self.ScanResultCheckBoxValue" />
           <EntitySet Name="TIME_STAMPS" EntityType="Self.TIME_STAMPS" />
         </EntityContainer>
       </Schema>
@@ -481,6 +499,15 @@
                 <ScalarProperty Name="EDD_SUPPORT" ColumnName="EDD_SUPPORT" />
                 <ScalarProperty Name="ACPI_SUPPORT" ColumnName="ACPI_SUPPORT" />
                 <ScalarProperty Name="USB_LAGACY_SUPPORT" ColumnName="USB_LAGACY_SUPPORT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScanResultCheckBoxValues">
+            <EntityTypeMapping TypeName="DriverUpdaterDataStoreModel.ScanResultCheckBoxValue">
+              <MappingFragment StoreEntitySet="ScanResultCheckBoxValues">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="VALUE" ColumnName="VALUE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

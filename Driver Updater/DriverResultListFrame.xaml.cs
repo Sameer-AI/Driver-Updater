@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Driver_Updater.Models;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Management;
 using System.Text;
@@ -23,6 +25,9 @@ namespace Driver_Updater
     public partial class DriverResultListFrame : UserControl
     {
         ScannedDriverDataStore tempObj = new ScannedDriverDataStore();
+        DriverUpdaterDataStoreEntities db = new DriverUpdaterDataStoreEntities();
+
+
         public DriverResultListFrame()
         {
             InitializeComponent();
@@ -32,37 +37,123 @@ namespace Driver_Updater
         {
             InitializeComponent();
             setCategoryButtonIcon(obj);
+            checkBox_setter(obj);
+            setData(obj);
+            tempObj = obj;
+            loaderStart();
+
+        }
+
+        private void loaderStart()
+        {
+
+            //this thread worker is designed to operated only progress Bar
+
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.RunWorkerCompleted += worker_RunWorkerCompleted;
+            worker.WorkerReportsProgress = false;
+            worker.DoWork += worker_DoWork;
+            worker.RunWorkerAsync();
+
+        }
+
+        private void worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            db_write(tempObj);
+            db_read(tempObj);
+        }
+
+        private void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            Console.WriteLine("thread completed");
+        }
+
+
+
+        private void db_read(ScannedDriverDataStore obj)
+        {
+            var docs = from d in db.ScanResultCheckBoxValues
+                       select new
+                       {
+                           Name=d.NAME,
+                           Value=d.VALUE
+                       };
+
+            foreach( var item in docs)
+            {
+                Console.WriteLine(item.Name + ":" + item.Value);
+            }
+        }
+
+        private void db_write(ScannedDriverDataStore obj)
+        {
+            if (db.ScanResultCheckBoxValues.Count() == 0)
+            {
+                ScanResultCheckBoxValue CheckBoxValue = new ScanResultCheckBoxValue()
+                {
+                    NAME=this.CheckBox.Content.ToString(),
+                    VALUE=this.CheckBox.IsChecked
+                };
+
+                //Console.WriteLine(CheckBoxValue.NAME + "db write") ;
+                db.ScanResultCheckBoxValues.Add(CheckBoxValue);
+                db.SaveChanges();
+            }
+
+            else
+            {
+                ScanResultCheckBoxValue CheckBoxValue = new ScanResultCheckBoxValue()
+                {   Id = db.ScanResultCheckBoxValues.Count() + 1,
+                    NAME = this.CheckBox.Content.ToString(),
+                    VALUE = this.CheckBox.IsChecked
+                };
+                //Console.WriteLine(CheckBoxValue.NAME + "db write else");
+                db.ScanResultCheckBoxValues.Add(CheckBoxValue);
+                db.SaveChanges();
+            }
+
+        }
+
+        public void setData(ScannedDriverDataStore obj)
+        {
+
             DateTime? driverDateParsed;
-            string temp =String.IsNullOrEmpty(String.Concat(obj.CurrentDate.Where(c => !Char.IsWhiteSpace(c)))) ? String.Empty : String.Concat(obj.CurrentDate.Where(c => !Char.IsWhiteSpace(c)));
-            
+            string temp = String.IsNullOrEmpty(String.Concat(obj.CurrentDate.Where(c => !Char.IsWhiteSpace(c)))) ? String.Empty : String.Concat(obj.CurrentDate.Where(c => !Char.IsWhiteSpace(c)));
+
             try
             {
-                 driverDateParsed = ManagementDateTimeConverter.ToDateTime(temp);
+                driverDateParsed = ManagementDateTimeConverter.ToDateTime(temp);
             }
-            catch {
+            catch
+            {
                 driverDateParsed = null;
             }
 
-            
+
 
             try
             {
 
                 //icon_content.Content = String.IsNullOrEmpty(String.Concat(obj.FriendlyName.Where(c => !Char.IsWhiteSpace(c)))) ? "n/a" : String.Concat(obj.FriendlyName.Where(c => !Char.IsWhiteSpace(c)));
                 icon_content.Content = obj.FriendlyName;
-                Friendly_Name_Content.Content=obj.FriendlyName;
+                Friendly_Name_Content.Content = obj.FriendlyName;
                 Update_now.Content = obj.FriendlyName;
-            
+
             }
             catch
             {
                 Console.WriteLine("empty");
             }
-            
-            Date.Text = String.Format("Current Date: {0}",driverDateParsed);
+
+            Date.Text = String.Format("Current Date: {0}", driverDateParsed);
 
 
+        }
 
+        public void checkBox_setter(ScannedDriverDataStore obj)
+        {
+            this.CheckBox.Content = obj.FriendlyName;
+            //Console.WriteLine(CheckBox.Content);
         }
 
         public void setCategoryButtonIcon(ScannedDriverDataStore obj)
@@ -261,5 +352,16 @@ namespace Driver_Updater
             window.Owner = Application.Current.MainWindow;
             window.ShowDialog();
         }
+
+        private void Checked(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(this.CheckBox.Content + " is checked");
+        }
+
+        private void Unchecked(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(this.CheckBox.Content + " is unchecked");
+        }
     }
-}
+ }
+

@@ -33,6 +33,7 @@ namespace Driver_Updater.Models
         public virtual DbSet<MEMORY_DEVICE> MEMORY_DEVICE { get; set; }
         public virtual DbSet<OS> OS { get; set; }
         public virtual DbSet<PROCESSOR_AND_MOTHERBOARD> PROCESSOR_AND_MOTHERBOARD { get; set; }
+        public virtual DbSet<ScanResultCheckBoxValue> ScanResultCheckBoxValues { get; set; }
         public virtual DbSet<TIME_STAMPS> TIME_STAMPS { get; set; }
     }
 }
