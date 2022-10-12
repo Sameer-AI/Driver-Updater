@@ -1,22 +1,13 @@
 ﻿using Driver_Updater.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Management;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
 namespace Driver_Updater
 {
     /// <summary>
@@ -26,30 +17,32 @@ namespace Driver_Updater
     {
         ScannedDriverDataStore tempObj = new ScannedDriverDataStore();
         DriverUpdaterDataStoreEntities db = new DriverUpdaterDataStoreEntities();
-
-
+        
         public DriverResultListFrame()
         {
             InitializeComponent();
         }
 
-        public DriverResultListFrame(ScannedDriverDataStore obj)
+        public DriverResultListFrame(ScannedDriverDataStore obj,List<DriverCheckBoxDataStore> chkbox ,int i, string id)
         {
             InitializeComponent();
             setCategoryButtonIcon(obj);
-            checkBox_setter(obj);
+            checkBox_setter(obj,id);
             setData(obj);
             tempObj = obj;
-            loaderStart();
+            db_write(tempObj,chkbox,i);
+            //db_read(tempObj);
+            //loaderStart(workerObj);
 
         }
 
-        private void loaderStart()
+        /*
+        private void loaderStart(BackgroundWorker worker)
         {
 
             //this thread worker is designed to operated only progress Bar
 
-            BackgroundWorker worker = new BackgroundWorker();
+            //BackgroundWorker worker = new BackgroundWorker();
             worker.RunWorkerCompleted += worker_RunWorkerCompleted;
             worker.WorkerReportsProgress = false;
             worker.DoWork += worker_DoWork;
@@ -59,20 +52,19 @@ namespace Driver_Updater
 
         private void worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            db_write(tempObj);
-            db_read(tempObj);
+            
         }
 
         private void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             Console.WriteLine("thread completed");
-        }
+        }*/
 
 
 
-        private void db_read(ScannedDriverDataStore obj)
+        public void db_read(List<ScannedDriverDataStore> obj)
         {
-            var docs = from d in db.ScanResultCheckBoxValues
+            /*var docs = from d in db.ScanResultCheckBoxValues
                        select new
                        {
                            Name=d.NAME,
@@ -82,35 +74,51 @@ namespace Driver_Updater
             foreach( var item in docs)
             {
                 Console.WriteLine(item.Name + ":" + item.Value);
-            }
+            }*/
+           
+ 
+
         }
 
-        private void db_write(ScannedDriverDataStore obj)
+        public void db_write(ScannedDriverDataStore obj, List<DriverCheckBoxDataStore> chkBox ,int i)
         {
-            if (db.ScanResultCheckBoxValues.Count() == 0)
+            chkBox.Add(new DriverCheckBoxDataStore()
+            {   ID=i,
+                Name = CheckBox.Content.ToString(),
+                Value = (bool)CheckBox.IsChecked
+            }); ; ;
+           /* if (db.ScanResultCheckBoxValues.Count() == 0)
             {
+                Console.WriteLine(db.ScanResultCheckBoxValues.Count());
+
                 ScanResultCheckBoxValue CheckBoxValue = new ScanResultCheckBoxValue()
                 {
-                    NAME=this.CheckBox.Content.ToString(),
-                    VALUE=this.CheckBox.IsChecked
+                    NAME = this.CheckBox.Content.ToString(),
+                    VALUE = this.CheckBox.IsChecked
+
                 };
 
-                //Console.WriteLine(CheckBoxValue.NAME + "db write") ;
                 db.ScanResultCheckBoxValues.Add(CheckBoxValue);
                 db.SaveChanges();
+
+                
+
+                //Console.WriteLine(CheckBoxValue.NAME + "db write") ;
+               
             }
 
             else
             {
                 ScanResultCheckBoxValue CheckBoxValue = new ScanResultCheckBoxValue()
-                {   Id = db.ScanResultCheckBoxValues.Count() + 1,
+                {
+                    Id = db.ScanResultCheckBoxValues.Count() + 1,
                     NAME = this.CheckBox.Content.ToString(),
                     VALUE = this.CheckBox.IsChecked
                 };
                 //Console.WriteLine(CheckBoxValue.NAME + "db write else");
                 db.ScanResultCheckBoxValues.Add(CheckBoxValue);
                 db.SaveChanges();
-            }
+            }*/
 
         }
 
@@ -150,11 +158,13 @@ namespace Driver_Updater
 
         }
 
-        public void checkBox_setter(ScannedDriverDataStore obj)
+        public void checkBox_setter(ScannedDriverDataStore obj,string id)
         {
-            this.CheckBox.Content = obj.FriendlyName;
+            this.CheckBox.Content = obj.FriendlyName+"."+id;
             //Console.WriteLine(CheckBox.Content);
         }
+
+
 
         public void setCategoryButtonIcon(ScannedDriverDataStore obj)
         {
@@ -354,13 +364,41 @@ namespace Driver_Updater
         }
 
         private void Checked(object sender, RoutedEventArgs e)
+        {   int chkBoxId = Convert.ToInt32(splitter());
+            
+            var result = db.ScanResultCheckBoxValues.SingleOrDefault(b => b.Id == chkBoxId);
+            if (result != null)
+            {
+                result.VALUE = true;
+                db.SaveChanges();
+            }
+
+
+
+        }
+
+        public string splitter()
         {
-            Console.WriteLine(this.CheckBox.Content + " is checked");
+            string splitted_contentId;
+            string[] strArr = CheckBox.Content.ToString().Split('.');
+            splitted_contentId = strArr[1];
+           
+            return splitted_contentId;
         }
 
         private void Unchecked(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(this.CheckBox.Content + " is unchecked");
+            
+            int chkBoxId = Convert.ToInt32(splitter());
+           
+            var result = db.ScanResultCheckBoxValues.SingleOrDefault(b => b.Id == chkBoxId);
+            if (result != null)
+            {
+                result.VALUE = false;
+                db.SaveChanges();
+            }
+
+            
         }
     }
  }

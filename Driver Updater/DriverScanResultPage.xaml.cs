@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,8 @@ namespace Driver_Updater
         ObservableCollection<DriverResultListFrame> Frames = new ObservableCollection<DriverResultListFrame>();
         DriverUpdaterDataStoreEntities db = new DriverUpdaterDataStoreEntities();
         ScannedDriverDataStore driverInfoBlock = new ScannedDriverDataStore();
+        public List<DriverCheckBoxDataStore> chkBox = new List<DriverCheckBoxDataStore>();
+        
 
         public DriverScanResultPage()
         {
@@ -69,22 +72,76 @@ namespace Driver_Updater
                 driverInfoBlock.Updated_At = String.IsNullOrEmpty(item.UPDATED_AT?.ToString()) ? String.Empty: item.UPDATED_AT?.ToString();
 
                 if (driverInfoBlock.FriendlyName != null)
-                {
-                    Frames.Add(new DriverResultListFrame(driverInfoBlock));
+                {  
+                    Frames.Add(new DriverResultListFrame(driverInfoBlock,chkBox,i,i.ToString()));
                     this.frameSetter.Children.Add(Frames[i]);
                     i++;
+
                 }
                 
 
             }
+            
+            if (db.ScanResultCheckBoxValues.Count() == 0)
+            {
+                foreach (var item in chkBox)
+                {
+                    ScanResultCheckBoxValue chkboxObj = new ScanResultCheckBoxValue()
+                    {
+                        Id = item.ID,
+                        NAME = item.Name,
+                        VALUE = item.Value
+                    };
 
-           
+                    db.ScanResultCheckBoxValues.Add(chkboxObj);
+                    db.SaveChanges();
 
+                   
+                }
+
+
+            }
+
+            else
+            {   foreach(var item in db.ScanResultCheckBoxValues)
+                {
+                    db.ScanResultCheckBoxValues.Remove(item);
+                }
+
+                foreach (var item in chkBox)
+                {
+                    ScanResultCheckBoxValue chkboxObj = new ScanResultCheckBoxValue()
+                    {
+                        Id = item.ID,
+                        NAME = item.Name,
+                        VALUE = item.Value
+                    };
+
+                    db.ScanResultCheckBoxValues.Add(chkboxObj);
+                    db.SaveChanges();                    
+                }
+            }
         }
 
         public void set()
         {
 
+        }
+
+        private void upgradeAll(object sender, RoutedEventArgs e)
+        {
+            var docs = from d in db.ScanResultCheckBoxValues
+                       select new
+                       {
+                           id = d.Id,
+                           name = d.NAME,
+                           val = d.VALUE
+                       };
+
+            foreach (var item in docs)
+            {
+                Console.WriteLine(item.id + " : " + item.name + ":" + item.val);
+            }
         }
     }
 }

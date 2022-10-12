@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Driver_Updater"
         mc:Ignorable="d"
-        Title="PopUp2" Height="250" Width="400" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" ResizeMode="NoResize" ShowInTaskbar="False">
+        Title="PopUp2" Height="350" Width="450" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}" ResizeMode="NoResize" ShowInTaskbar="False">
     <Window.Resources>
         <Storyboard x:Key="Storyboard1">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="grid">
-                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-249"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-349"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
@@ -18,7 +18,7 @@
             <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
         </EventTrigger>
     </Window.Triggers>
-    <Grid x:Name="grid" Margin="0,249,0,-249" RenderTransformOrigin="0.5,0.5">
+    <Grid x:Name="grid" Margin="0,350,0,-349" RenderTransformOrigin="0.5,0.5">
         <Grid.RenderTransform>
             <TransformGroup>
                 <ScaleTransform/>
@@ -27,20 +27,28 @@
                 <TranslateTransform/>
             </TransformGroup>
         </Grid.RenderTransform>
-        <Rectangle Fill="#FF394E6C" HorizontalAlignment="Left" Height="249.667" Margin="0,0.333,0,0" Stroke="Black" VerticalAlignment="Top" Width="400"/>
-        <TextBlock HorizontalAlignment="Left" Height="16.001" Margin="30.015,2.334,0,0" TextWrapping="Wrap" Text="Spreader Driver Booster" VerticalAlignment="Top" Width="130" FontSize="8" Foreground="#FFE6E0E0" FontWeight="Bold"/>
-        <Rectangle Fill="#FFA0B4D1" HorizontalAlignment="Left" Height="16.001" Margin="0,0.333,0,0" Stroke="Black" VerticalAlignment="Top" Width="25.015"/>
-        <Button Content="-&#xD;&#xA;" HorizontalAlignment="Left" Height="16.001" Margin="332.669,0.333,0,0" VerticalAlignment="Top" Width="20"/>
-        <Button Content="X&#xD;&#xA;" HorizontalAlignment="Left" Height="16.001" Margin="362.684,0.333,0,0" VerticalAlignment="Top" Width="20"/>
-        <TextBlock HorizontalAlignment="Left" Height="52" Margin="92.655,35.67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="212" Foreground="#FFE6E0E0"><Run FontWeight="Bold" FontSize="10" Text="N devices need up-to-date drivers."/><LineBreak/><Run FontSize="8" Text="Update your outdated drivers to improve the stability of your PC"/></TextBlock>
-        <Rectangle Fill="#FF99AAC1" HorizontalAlignment="Left" Height="34.658" Margin="23.335,35.67,0,0" Stroke="Black" VerticalAlignment="Top" Width="45.667"/>
-        <ScrollViewer HorizontalAlignment="Left" Height="115" Margin="10,76.989,0,0" VerticalAlignment="Top" Width="372" Background="#FF1E2838">
+        <Rectangle Fill="#FF394E6C" HorizontalAlignment="Left" Height="350" Margin="0,0.333,0,0" Stroke="Black" VerticalAlignment="Top" Width="450"/>
+        <TextBlock HorizontalAlignment="Left" Height="16.001" Margin="30.015,2.334,0,0" TextWrapping="Wrap" Text="Spreader Driver Booster" VerticalAlignment="Top" Width="130" FontSize="11" Foreground="#FFE6E0E0" FontWeight="Bold"/>
+        <Rectangle HorizontalAlignment="Left" Height="22.154" Margin="0,0.333,0,0" VerticalAlignment="Top" Width="25.015">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="7.png" Stretch="Uniform"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Button Content="X&#xD;&#xA;" HorizontalAlignment="Left" Height="23.001" Margin="421,5,0,0" VerticalAlignment="Top" Width="22" BorderBrush="{x:Null}" Background="#FF1E2838" Foreground="#FFEEE4E4" Click="close"/>
+        <TextBlock HorizontalAlignment="Left" Height="52" Margin="92.655,35.67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="346" Foreground="#FFE6E0E0"><Run FontWeight="Bold" FontSize="10" Text="N devices need up-to-date drivers."/><LineBreak/><Run FontSize="11" Text="Update your outdated drivers to improve the stability of your PC"/></TextBlock>
+        <Rectangle HorizontalAlignment="Left" Height="44.502" Margin="23.335,27.487,0,0" VerticalAlignment="Top" Width="54.334">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="ICONS 1.png" Stretch="Uniform"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <ScrollViewer HorizontalAlignment="Left" Height="215" Margin="10,81.989,0,0" VerticalAlignment="Top" Width="430" Background="#FF1E2838">
             <StackPanel x:Name="FrameSetter"  Orientation="Vertical">
-                
+
             </StackPanel>
         </ScrollViewer>
-        <TextBlock HorizontalAlignment="Left" Height="12.666" Margin="12,209.167,0,0" TextWrapping="Wrap" Text="View more outdated drivers &gt;" VerticalAlignment="Top" Width="217.333" FontSize="8" Foreground="#FFAFDEEC" TextDecorations="Underline"/>
-        <Button Content="Update All" HorizontalAlignment="Left" Height="19.333" Margin="262,209.167,0,0" VerticalAlignment="Top" Width="120"/>
+       
+        <TextBlock HorizontalAlignment="Left" Height="24.419" Margin="16.335,314.167,0,0" TextWrapping="Wrap" Text="View more outdated drivers &gt;" VerticalAlignment="Top" Width="217.333" FontSize="11" Foreground="#FFAFDEEC" TextDecorations="Underline"/>
+        <Button Content="Update All" HorizontalAlignment="Left" Height="28.833" Margin="344,310.167,0,0" VerticalAlignment="Top" Width="96" BorderBrush="{x:Null}" Background="#FF1E2838" Foreground="#FFF1EBEB" Click="openMainWindow"/>
 
     </Grid>
 </Window>

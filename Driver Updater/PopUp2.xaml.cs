@@ -36,12 +36,13 @@ namespace Driver_Updater
             var docs = from d in db.DRIVER_DETAILS
                        select new
                        {
-                           FRIENDLY_NAME = d.FRIENDLY_NAME
+                           FRIENDLY_NAME = d.FRIENDLY_NAME,
+                           CATEGORY=d.CATEGORY
                        };
 
             foreach (var item in docs)
             {
-                Frames.Add(new DriverListFrameToast(item.FRIENDLY_NAME));
+                Frames.Add(new DriverListFrameToast(item.FRIENDLY_NAME,item.CATEGORY));
                 this.FrameSetter.Children.Add(Frames[i]);
                 i++;
             }
@@ -49,5 +50,27 @@ namespace Driver_Updater
 
         }
 
+        private void close(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void openMainWindow(object sender, RoutedEventArgs e)
+        {
+            
+          if (Application.Current.MainWindow == null)
+            {
+                MainWindow window = new MainWindow();
+                window.Show();
+                
+            }
+            else
+            {
+                Application.Current.MainWindow.Activate();
+
+            }
+
+
+        }
     }   
 }

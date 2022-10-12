@@ -23,5 +23,25 @@ namespace Driver_Updater
         {
             InitializeComponent();
         }
+
+        private void open_window(object sender, RoutedEventArgs e)
+        {
+            if (Application.Current.MainWindow == null)
+            {
+                MainWindow window = new MainWindow();
+                window.Show();
+
+            }
+            else
+            {
+                Application.Current.MainWindow.Activate();
+
+            }
+
+        }
+        private void close(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

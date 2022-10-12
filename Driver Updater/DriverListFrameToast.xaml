@@ -6,8 +6,13 @@
              xmlns:local="clr-namespace:Driver_Updater"
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="200">
-    <Grid Background="white">
-        <Label x:Name="FriendlyName" Content="Name" HorizontalAlignment="Left" Height="30" Margin="0,10,0,0" VerticalAlignment="Top" Width="200"/>
+    <Grid Background="DarkSlateBlue">
+        <StackPanel Orientation="Horizontal">
 
+            <Rectangle Width="30" Height="30" Fill="Aqua" Margin="10,1,10,1" Name="category_logo">
+            </Rectangle>
+            <Label x:Name="FriendlyName" Content="Name" HorizontalAlignment="Left" Height="30" Margin="0,10,0,0" VerticalAlignment="Top" Width="200" Foreground="AntiqueWhite"/>
+
+        </StackPanel>
     </Grid>
 </UserControl>
