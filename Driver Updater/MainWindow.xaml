@@ -11,7 +11,7 @@
     Width="1000"
     Height="600"
     Background="{x:Null}"
-    mc:Ignorable="d" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    mc:Ignorable="d" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Activated="popup_start">
     <Window.Resources>
         <Storyboard x:Key="Flyout">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="grid">

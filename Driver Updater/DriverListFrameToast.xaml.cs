@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace Driver_Updater
 {
     /// <summary>
-    /// Interaction logic for DriverListFrameToast.xaml
+    /// Interaction logic for DriverListFrameToast.xaml  
     /// </summary>
     public partial class DriverListFrameToast : UserControl
     {

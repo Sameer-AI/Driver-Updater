@@ -24,15 +24,15 @@ namespace Driver_Updater
     /// </summary>
     public partial class MainWindow : Window
     {
+        private System.Windows.Threading.DispatcherTimer popupTimer;
+        public bool popEnable { get; set; } 
+
         public MainWindow()
         {
             
             InitializeComponent();
             homeWindowloader();
 
-            
-
-            
 
         }
        
@@ -72,5 +72,48 @@ namespace Driver_Updater
             Home page = new Home();
             this.switchingWindow.Content = page;
         }
+
+        private void popup_start(object sender, EventArgs e)
+        {
+            Console.WriteLine(DateTime.Now);
+            popupTimer = new System.Windows.Threading.DispatcherTimer();
+
+            // Work out interval as time you want to popup - current time
+            popupTimer.Interval = new TimeSpan(1, 0, 0); 
+            popupTimer.IsEnabled = true;
+            popupTimer.Tick += new EventHandler(popupTimer_Tick);
+        }
+        void popupTimer_Tick(object sender, EventArgs e)
+        {
+            if (popEnable)
+            {
+                ad_popup();
+            }
+            driver_info_popup();
+
+        }
+
+        void ad_popup()
+        {
+            popupTimer.IsEnabled = false;
+            Popup1 window = new Popup1();
+            window.Top = 680;
+            window.Left = 1230;
+
+
+            window.Show();
+        }
+
+        void driver_info_popup()
+        {
+            PopUp2 window = new PopUp2();
+            window.Top = 380;
+            window.Left = 1230;
+
+
+            window.Show();
+        }
+
+
     }
 }

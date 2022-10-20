@@ -36,8 +36,8 @@ namespace Driver_Updater
                             * we can further modify these mthod to sut are needs
                             * for now we are only looking at 3 value but rest can also be used
                             */
-            popWindowOpen();
-            popWindow2Open();
+            //popWindowOpen();
+            //popWindow2Open();
             scanAndSaveDataToDb();
 
 
